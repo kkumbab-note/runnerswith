@@ -2487,8 +2487,12 @@ button.hero-cap { border: 0; cursor: pointer; }
   });
 
   // #product-daily-01 같은 링크로 들어오면 바로 상세를 열어요
-  const deep = location.hash.match(/^#product-([\w-]+)$/);
-  if (deep && PRODUCTS[deep[1]]) openPdp(deep[1]);
+  const openFromHash = () => {
+    const deep = location.hash.match(/^#product-([\w-]+)$/);
+    if (deep && PRODUCTS[deep[1]]) openPdp(deep[1]);
+  };
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);   // 페이지 안 링크(#product-…)로도 열려요
 })();
 </script>
 
