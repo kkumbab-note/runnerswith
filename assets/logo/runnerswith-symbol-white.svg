@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" width="480" height="320" role="img" aria-label="러너스위드 심볼 (어두운 배경용)">
+  <title>Runners With — Lane Bend symbol (on dark)</title>
+  <g fill="none" stroke="#F2EDE4" stroke-width="3.4" stroke-linecap="round">
+    <path d="M45 3H17a13 13 0 0 0 0 26h28"/>
+    <path d="M45 9.6H17a6.4 6.4 0 0 0 0 12.8h28"/>
+  </g>
+  <circle cx="17" cy="16" r="3" fill="#E5502F"/>
+</svg>

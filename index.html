@@ -1,0 +1,3039 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>러너스위드 Runners With — 당신과 함께 달리는 일상을 위한 러닝 기어</title>
+<meta name="description" content="러닝화·러닝 의류·러닝 장비를 만드는 러너스위드. 출근 전 5km부터 주말 하프 마라톤까지, 매일 곁에서 함께 달리는 기어를 만나보세요. 개인 구매, 러닝 크루 단체 주문, 매장 도매 문의 모두 가능해요.">
+<meta name="theme-color" content="#F2EDE4">
+<meta name="color-scheme" content="light">
+<!-- 배포 주소 (GitHub Pages). 자체 도메인을 연결하면 아래 주소들을 함께 바꿔주세요 -->
+<link rel="canonical" href="https://nandari76-dot.github.io/runnerswith/">
+
+<!-- Open Graph / 공유 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="러너스위드 Runners With">
+<meta property="og:title" content="러너스위드 — 당신과 함께 달리는 일상을 위한 기어">
+<meta property="og:description" content="러닝화·의류·장비. 출근 전 5km부터 주말 하프까지, 매일 곁에서 함께 달리는 기어를 만들어요.">
+<meta property="og:url" content="https://nandari76-dot.github.io/runnerswith/">
+<meta property="og:image" content="https://nandari76-dot.github.io/runnerswith/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="오프화이트 배경 위 러너스위드 대표 러닝화와 슬로건 Run the everyday, with you">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="러너스위드 — 당신과 함께 달리는 일상을 위한 기어">
+<meta name="twitter:description" content="러닝화·의류·장비. 매일 곁에서 함께 달리는 기어.">
+<meta name="twitter:image" content="https://nandari76-dot.github.io/runnerswith/assets/images/og-image.jpg">
+
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/images/hero-a.webp" fetchpriority="high">
+
+<!-- 3D 뷰어(Three.js)는 상세 모달에서 3D 탭을 열 때만 불러와요 -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+
+<!-- Fonts: 국문 Pretendard / 영문 Archivo(가변 너비) + Fraunces Italic -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Fraunces:ital,opsz,wght@1,9..144,300..600&display=swap">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "러너스위드",
+  "alternateName": "Runners With",
+  "url": "https://nandari76-dot.github.io/runnerswith/",
+  "logo": "https://nandari76-dot.github.io/runnerswith/assets/logo/runnerswith-logo.png",
+  "slogan": "당신과 함께 달리는 일상을 위한 기어",
+  "sameAs": ["https://www.instagram.com/your_account"]
+}
+</script>
+
+<style>
+/* =========================================================
+   DESIGN TOKENS — 색은 딱 3개 (배경 / 텍스트 / 포인트)
+   ========================================================= */
+:root {
+  --bg: #F2EDE4;      /* 오트밀 오프화이트 */
+  --ink: #161513;     /* 잉크 블랙 */
+  --accent: #E5502F;  /* 트랙 레드 (육상 트랙 우레탄 색) */
+
+  /* 위 3색에서 파생된 투명도 변형 (새 색 아님) */
+  --line: color-mix(in srgb, var(--ink) 18%, transparent);
+  --muted: color-mix(in srgb, var(--ink) 66%, var(--bg));
+  --surface: color-mix(in srgb, var(--ink) 6%, var(--bg));
+  --muted-inv: color-mix(in srgb, var(--bg) 62%, var(--ink));
+
+  --font-kr: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-en: "Archivo", var(--font-kr);
+  --font-serif: "Fraunces", "Times New Roman", serif;
+
+  --maxw: 1440px;
+  --pad: clamp(20px, 4.2vw, 64px);
+  --gutter: clamp(12px, 1.8vw, 24px);
+  --section: clamp(104px, 13vw, 200px);
+  --header-h: 64px;
+  --ease: cubic-bezier(.22, .7, .12, 1);
+}
+@media (min-width: 960px) { :root { --header-h: 78px; } }
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-kr);
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+html.menu-open { overflow: hidden; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p, dl, dd, figure, fieldset { margin: 0; }
+main:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--accent); color: var(--ink); }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: fixed; left: 16px; top: -80px; z-index: 300;
+  padding: 12px 20px; border-radius: 999px;
+  background: var(--ink); color: var(--bg); font-weight: 600;
+  transition: top .2s;
+}
+.skip:focus { top: 12px; }
+
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+.label {
+  font-family: var(--font-en);
+  font-size: 12px; font-weight: 500; line-height: 1.4;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.u-sm-up { display: none; }
+@media (min-width: 640px) { .u-sm-up { display: revert; } }
+
+/* 영문 디스플레이 속 강조 단어 = 세리프 이탤릭 */
+:is(.hero-title, .sec-title-en, .footer-slogan, .marquee-group, .logo-word) em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   BUTTONS & LINKS
+   ========================================================= */
+.btn {
+  --h: 52px;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  height: var(--h); padding: 0 calc(var(--h) * .46);
+  border: 1px solid transparent; border-radius: 999px;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap;
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+.btn--sm { --h: 40px; font-size: 14px; }
+.btn--lg { --h: 60px; font-size: 16px; }
+.btn--ink { background: var(--ink); color: var(--bg); }
+.btn--accent { background: var(--accent); color: var(--ink); }
+.btn--line { border-color: var(--ink); color: var(--ink); }
+.btn--text { padding: 0 8px; text-decoration: underline; text-underline-offset: 4px; }
+.arrow { display: inline-block; font-family: var(--font-kr); font-weight: 500; transition: transform .35s var(--ease); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: .4em;
+  min-height: 44px; font-size: 15px; font-weight: 600;
+}
+.link-arrow .t {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size .4s var(--ease);
+}
+
+@media (hover: hover) {
+  .btn--ink:hover { background: var(--accent); color: var(--ink); }
+  .btn--accent:hover { background: var(--ink); color: var(--bg); }
+  .btn--line:hover { background: var(--ink); color: var(--bg); }
+  :is(a, button):hover > .arrow { transform: translate(3px, -3px); }
+  :is(a, button):hover > .arrow--r { transform: translateX(4px); }
+  :is(a, button):hover > .arrow--d { transform: translate(2px, 3px); }
+  .link-arrow:hover .t { background-size: 0 1px; background-position: 100% 100%; }
+}
+
+/* =========================================================
+   HEADER + 시그니처 ① 페이스 레인
+   ========================================================= */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(1.3) blur(14px);
+  backdrop-filter: saturate(1.3) blur(14px);
+}
+.menu-open .site-header { background: var(--bg); }
+.header-inner {
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px;
+  height: calc(var(--header-h) - 6px);
+}
+.logo { display: inline-flex; align-items: center; gap: 9px; }
+.logo-mark { width: 33px; height: 22px; flex: none; }
+.logo-word {
+  font-family: var(--font-en); font-weight: 700; font-stretch: 84%;
+  font-size: 19px; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
+}
+.logo-word em { text-transform: none; font-size: 1.14em; margin-left: .12em; color: var(--accent); }
+
+.nav { display: none; }
+.nav ul { display: flex; gap: clamp(20px, 2.6vw, 40px); }
+.nav a {
+  position: relative; display: inline-flex; align-items: flex-start; gap: 4px;
+  padding: 10px 2px; font-size: 15px; font-weight: 500;
+}
+.nav-no { font-family: var(--font-en); font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--muted); margin-top: -2px; }
+.nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: right;
+  transition: transform .45s var(--ease);
+}
+.nav a.is-active::after { transform: scaleX(1); transform-origin: left; }
+@media (hover: hover) { .nav a:hover::after { transform: scaleX(1); transform-origin: left; } }
+
+.header-actions { justify-self: end; display: flex; align-items: center; gap: 8px; }
+
+/* 거리 표시 (시그니처) */
+.km {
+  display: none; align-items: center; gap: 5px;
+  height: 32px; padding: 0 11px; border: 1px solid var(--line); border-radius: 999px;
+  font-family: var(--font-en); font-variant-numeric: tabular-nums;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+  transition: background-color .3s, color .3s;
+}
+.km::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.km-val { min-width: 3.3em; text-align: right; }
+.km-unit { font-size: 10px; letter-spacing: .08em; color: var(--muted); }
+.km.is-finish { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.km.is-finish .km-unit { color: inherit; }
+.km.is-finish .km-unit::after { content: " · FIN"; }
+@media (min-width: 400px) { .km { display: inline-flex; } }
+
+.lang { display: none; align-items: center; gap: 2px; font-family: var(--font-en); font-size: 13px; font-weight: 600; }
+.lang button { min-width: 32px; height: 32px; border-radius: 999px; color: var(--muted); }
+.lang button[aria-pressed="true"] { color: var(--ink); }
+.lang span { color: var(--line); }
+
+.menu-btn {
+  position: relative; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--ink); display: grid; place-items: center;
+}
+.menu-btn__bars { position: relative; width: 16px; height: 8px; }
+.menu-btn__bars i {
+  position: absolute; left: 0; width: 100%; height: 1.6px; background: currentColor;
+  transition: transform .35s var(--ease), top .35s var(--ease);
+}
+.menu-btn__bars i:first-child { top: 0; }
+.menu-btn__bars i:last-child { top: calc(100% - 1.6px); }
+.menu-btn[aria-expanded="true"] .menu-btn__bars i:first-child { top: calc(50% - .8px); transform: rotate(45deg); }
+.menu-btn[aria-expanded="true"] .menu-btn__bars i:last-child { top: calc(50% - .8px); transform: rotate(-45deg); }
+
+@media (min-width: 960px) {
+  .header-inner { grid-template-columns: 1fr auto 1fr; }
+  .nav { display: block; }
+  .lang { display: inline-flex; }
+  .menu-btn { display: none; }
+  .logo-word { font-size: 21px; }
+}
+
+/* 페이스 레인: 스크롤 = 마라톤 거리 */
+.pace {
+  position: relative; height: 6px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  overflow-x: clip;
+}
+.pace__ticks i { position: absolute; top: -1px; bottom: -1px; width: 1px; background: var(--ink); opacity: .3; }
+.pace__fill {
+  position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px;
+  background: var(--accent);
+  transform: translateX(calc((var(--p, 0) - 1) * 100%));
+  will-change: transform;
+}
+.pace__runner {
+  position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; margin-top: -5px;
+  border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--bg);
+}
+/* 좁은 화면(400px 미만): 헤더 대신 러너 점에 거리 칩이 따라붙어요 */
+.pace__chip {
+  position: absolute; top: 12px; left: 5px;
+  padding: 2px 7px; border-radius: 999px; background: var(--ink); color: var(--bg);
+  box-shadow: 0 0 0 1.5px var(--bg);
+  font-family: var(--font-en); font-size: 10px; font-weight: 600; line-height: 1.4;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+  transform: translateX(calc(var(--p, 0) * -100%));
+}
+.pace__chip::after { content: " KM"; font-size: 9px; letter-spacing: .06em; }
+@media (min-width: 400px) { .pace__chip { display: none; } }
+
+/* 모바일 메뉴 */
+.mnav {
+  position: fixed; left: 0; right: 0; top: var(--header-h); bottom: 0; z-index: 45;
+  display: flex; flex-direction: column; gap: 40px;
+  padding: 24px var(--pad) calc(32px + env(safe-area-inset-bottom));
+  background: var(--bg); overflow-y: auto;
+}
+.mnav[hidden] { display: none; }
+.mnav-list li:first-child .mnav-link { border-top: 1px solid var(--line); }
+.mnav-link {
+  display: flex; align-items: center; gap: 16px; padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(30px, 8.4vw, 44px); font-weight: 700; line-height: 1.1; letter-spacing: -0.035em;
+}
+.mnav-no { align-self: flex-start; margin-top: .5em; font-family: var(--font-en); font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--muted); }
+.mnav-link .arrow { margin-left: auto; font-size: .6em; }
+.mnav.is-open .mnav-list li { animation: fadeUp .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
+.mnav-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.mnav .lang { display: inline-flex; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } }
+
+/* =========================================================
+   PLACEHOLDER IMAGE — src만 바꾸면 실제 사진이 덮어요
+   ========================================================= */
+.ph { position: relative; overflow: hidden; background: var(--surface); isolation: isolate; }
+.ph::before {
+  content: ""; position: absolute; inset: 0; opacity: .6;
+  background: repeating-linear-gradient(135deg, transparent 0 13px, var(--line) 13px 14px);
+}
+.ph::after {
+  content: attr(data-ph);
+  position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; text-align: center;
+  font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.ph img, .ph video { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero { position: relative; overflow: clip; padding-top: clamp(36px, 6vw, 72px); }
+.hero-grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter); row-gap: 56px; align-items: center;
+}
+.hero-copy, .hero-visual { grid-column: 1 / -1; }
+.eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: clamp(24px, 3vw, 36px); }
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.eyebrow-sep { color: var(--muted); }
+
+.hero-title {
+  font-family: var(--font-en); font-weight: 600; font-stretch: 80%;
+  font-size: clamp(58px, 23vw, 150px);
+  line-height: .9; letter-spacing: -0.045em;
+}
+.hero-title .line { display: block; overflow: hidden; padding: 0 .08em .14em; margin: 0 -.08em -.14em; }
+.hero-title .line > span { display: inline-block; }
+.hero-title em { color: var(--accent); padding-right: .04em; }
+.js .hero-title .line > span {
+  transform: translateY(112%);
+  animation: rise 1.05s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+}
+@keyframes rise { to { transform: none; } }
+
+.hero-sub { margin-top: clamp(24px, 3vw, 36px); font-size: clamp(17px, 1.5vw, 19px); line-height: 1.7; color: color-mix(in srgb, var(--ink) 86%, var(--bg)); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(28px, 3vw, 40px); }
+
+.hero-visual { position: relative; width: 100%; max-width: 640px; margin-inline: auto; aspect-ratio: 1 / 1.14; }
+.hero-track { position: absolute; left: -34%; top: 14%; width: 160%; max-width: none; color: var(--line); z-index: 0; pointer-events: none; }
+.hero-track rect { fill: none; stroke: currentColor; stroke-width: 1.2; }
+.js .hero-track rect { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s var(--ease) forwards; }
+.js .hero-track rect:nth-child(2) { animation-delay: .15s; }
+.js .hero-track rect:nth-child(3) { animation-delay: .3s; }
+.js .hero-track rect:nth-child(4) { animation-delay: .45s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.hero-img { position: absolute; }
+.hero-img > .ph { position: absolute; inset: 0; }
+/* 뒤(A, 영상)는 크게, 앞(B)은 작게 아래로 내려 A의 왼쪽 아래 모서리만 살짝 겹쳐요 */
+.hero-img--a { top: 0; right: 0; width: 74%; aspect-ratio: 4 / 5; z-index: 1; animation: floatA 7s ease-in-out infinite alternate; }
+.hero-img--b { left: 0; bottom: 0; width: 40%; aspect-ratio: 3 / 4; z-index: 2; animation: floatB 8.5s ease-in-out infinite alternate; }
+@media (min-width: 640px) {
+  .hero-img--a { width: 76%; }
+  .hero-img--b { width: 36%; }
+}
+/* 앞 사진이 좁을 땐 라벨을 번호만 보여줘요 (제품명은 화면낭독기용으로 남겨요) */
+.hero-img--b { container-type: inline-size; }
+@container (max-width: 210px) {
+  .hero-cap .cap-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.hero-img--b > .ph { box-shadow: 0 0 0 8px var(--bg); }
+.js .hero-img > .ph { clip-path: inset(100% 0 0 0); animation: unclip 1.3s var(--ease) forwards; }
+.js .hero-img--a > .ph { animation-delay: .35s; }
+.js .hero-img--b > .ph { animation-delay: .6s; }
+@keyframes unclip { to { clip-path: inset(0 0 0 0); } }
+@keyframes floatA { from { transform: translateY(-8px); } to { transform: translateY(10px); } }
+@keyframes floatB { from { transform: translateY(12px); } to { transform: translateY(-10px); } }
+
+.hero-cap {
+  position: absolute; z-index: 2; bottom: 12px;
+  padding: 7px 11px; border-radius: 999px;
+  background: var(--bg); color: var(--ink); font-size: 10.5px;
+}
+.hero-cap { white-space: nowrap; }
+.hero-img--a .ph::after { place-items: start end; padding: 18px; }
+.hero-img--a .hero-cap { right: 12px; }
+.hero-img--b .hero-cap { left: 12px; }
+
+.hero-badge { position: absolute; z-index: 3; top: 3%; left: 9%; width: clamp(80px, 19vw, 120px); height: auto; }
+.badge-bg { fill: var(--accent); }
+.badge-ring { transform-origin: 60px 60px; animation: spin 30s linear infinite; }
+.badge-text { font-family: var(--font-en); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; fill: var(--ink); }
+.badge-arrow { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.motion-toggle {
+  position: absolute; z-index: 3; right: 0; bottom: 0;
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 44px; min-width: 44px; padding: 0 14px; justify-content: center;
+  border: 1px solid var(--ink); border-radius: 999px; background: var(--bg);
+  font-size: 13px; font-weight: 600;
+}
+.motion-toggle__icon { position: relative; width: 10px; height: 12px; }
+.motion-toggle[data-state="playing"] .motion-toggle__icon { border-left: 3px solid currentColor; border-right: 3px solid currentColor; }
+.motion-toggle[data-state="paused"] .motion-toggle__icon { width: 0; height: 0; border-left: 10px solid currentColor; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+@media (max-width: 639px) { .motion-toggle { padding: 0; } .motion-toggle__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
+
+.hero-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: clamp(40px, 6vw, 72px) clamp(28px, 4vw, 44px);
+  color: var(--muted);
+}
+.hero-foot .start-flag { color: var(--accent); }
+
+@media (min-width: 1024px) {
+  .hero-copy { grid-column: 1 / span 7; }
+  .hero-visual { grid-column: 8 / -1; margin-right: 0; }
+  .hero-title { font-size: clamp(96px, 10.4vw, 156px); }
+}
+
+/* 모션 제어: 일시정지 버튼 / prefers-reduced-motion */
+.motion-paused [data-motion] { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) {
+  :root:not(.motion-play) [data-motion] { animation-play-state: paused !important; }
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee { overflow: hidden; background: var(--ink); color: var(--bg); padding-block: clamp(16px, 2vw, 24px); }
+.marquee-track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+.marquee-group { display: flex; flex-shrink: 0; align-items: center; }
+.marquee-group li {
+  display: inline-flex; align-items: center; gap: clamp(22px, 3vw, 44px);
+  padding-right: clamp(22px, 3vw, 44px);
+  font-family: var(--font-en); font-weight: 600; font-stretch: 84%;
+  font-size: clamp(28px, 5vw, 64px); line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap;
+}
+.marquee-group li::after { content: ""; width: .26em; height: .26em; border-radius: 50%; background: var(--accent); }
+.marquee-group em { color: var(--accent); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* =========================================================
+   SECTION HEAD — 시그니처 ② 레인 라인 + 거리 스플릿
+   ========================================================= */
+.section { padding-block: var(--section); }
+.sec-head {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+  margin-bottom: clamp(48px, 7vw, 104px);
+}
+.sec-meta { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; }
+.sec-no { font-size: 13px; font-weight: 700; }
+.sec-split { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.sec-split::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.lane-line {
+  grid-column: 1 / -1; display: block; height: 8px; margin: 14px 0 clamp(28px, 4vw, 52px);
+  border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  transform-origin: left;
+}
+.js .sec-head .lane-line { transform: scaleX(0); transition: transform 1.5s var(--ease) .1s; }
+.js .sec-head.is-in .lane-line { transform: scaleX(1); }
+.sec-title { grid-column: 1 / -1; }
+.sec-title-en {
+  display: block; font-family: var(--font-en); font-weight: 600; font-stretch: 82%;
+  font-size: clamp(44px, 7.6vw, 118px); line-height: .94; letter-spacing: -0.045em; text-wrap: balance;
+}
+.sec-title-kr { display: block; margin-top: 18px; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -0.02em; }
+.sec-lead { grid-column: 1 / -1; margin-top: 20px; max-width: 30em; color: var(--muted); text-wrap: pretty; }
+@media (min-width: 1024px) {
+  .sec-title { grid-column: 1 / span 8; }
+  .sec-lead { grid-column: 9 / -1; align-self: end; margin-top: 0; }
+}
+
+/* 스크롤 등장 */
+.js [data-reveal] {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* =========================================================
+   01 COLLECTION
+   ========================================================= */
+.products {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter); row-gap: clamp(56px, 6vw, 88px);
+}
+.products > li { grid-column: span 12; align-self: start; }
+@media (min-width: 640px) { .products > li { grid-column: span 6; } }
+@media (min-width: 1024px) {
+  .products > li { grid-column: span 4; }
+  .products > li:nth-child(3n + 2) { margin-top: clamp(64px, 7vw, 112px); }
+}
+.product { display: flex; flex-direction: column; height: 100%; }
+.product-media { position: relative; overflow: hidden; aspect-ratio: 4 / 5; }
+.product-media > .ph { position: absolute; inset: 0; transition: transform 1.2s var(--ease); }
+.product-chip {
+  position: absolute; z-index: 2; top: 14px; left: 14px;
+  padding: 6px 11px; border-radius: 999px; background: var(--ink); color: var(--bg);
+}
+.product-hover {
+  position: absolute; z-index: 2; top: 14px; right: 14px;
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: var(--ink); font-size: 20px;
+  transform: scale(0) rotate(-90deg); transition: transform .55s var(--ease);
+}
+.product-meta { display: flex; justify-content: space-between; gap: 12px; padding: 16px 0 12px; border-bottom: 1px solid var(--line); }
+.product-meta span:last-child { color: var(--muted); }
+.product-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 18px; }
+.product-name {
+  font-family: var(--font-en); font-weight: 600; font-stretch: 86%;
+  font-size: clamp(26px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -0.035em;
+  background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 3px no-repeat;
+  padding-bottom: 4px; transition: background-size .6s var(--ease);
+}
+.product-price { font-family: var(--font-en); font-size: 18px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.product-price span { font-family: var(--font-kr); font-size: 14px; font-weight: 500; margin-left: 2px; }
+.product-kr { margin-top: 4px; font-size: 14px; color: var(--muted); }
+.product-desc { margin-top: 14px; font-size: 15.5px; text-wrap: pretty; }
+.product-spec { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.product-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: auto; padding-top: 22px; }
+.product:focus-within .product-hover { transform: scale(1) rotate(0); }
+.product:focus-within .product-name { background-size: 100% 3px; }
+@media (hover: hover) {
+  .product:hover .product-media > .ph { transform: scale(1.045); }
+  .product:hover .product-hover { transform: scale(1) rotate(0); }
+  .product:hover .product-name { background-size: 100% 3px; }
+}
+
+/* =========================================================
+   02 STORY
+   ========================================================= */
+.story-grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter); row-gap: 40px;
+}
+.statement {
+  grid-column: 1 / -1;
+  font-size: clamp(30px, 4.6vw, 64px); font-weight: 700; line-height: 1.26; letter-spacing: -0.04em;
+}
+.statement em {
+  font-style: normal;
+  background: linear-gradient(transparent 64%, color-mix(in srgb, var(--accent) 38%, transparent) 64%);
+}
+.story-body { grid-column: 1 / -1; display: grid; gap: 18px; max-width: 34em; color: color-mix(in srgb, var(--ink) 86%, var(--bg)); }
+.story-sign { color: var(--muted); }
+.story-figure { grid-column: 1 / -1; margin-top: clamp(32px, 6vw, 80px); }
+.story-figure .ph { aspect-ratio: 4 / 3; }
+.story-figure figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 14px; color: var(--muted); }
+@media (min-width: 768px) { .story-figure .ph { aspect-ratio: 21 / 9; } }
+@media (min-width: 1024px) {
+  .statement { grid-column: 1 / span 7; }
+  .story-body { grid-column: 9 / -1; align-self: end; }
+}
+.values {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter); row-gap: 48px; margin-top: clamp(72px, 9vw, 136px);
+}
+.value { grid-column: 1 / -1; padding-top: 24px; border-top: 1px solid var(--ink); }
+@media (min-width: 768px) { .value { grid-column: span 4; } }
+.value-no { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(56px, 5.6vw, 84px); line-height: 1; color: var(--accent); }
+.value-en { margin-top: 28px; color: var(--muted); }
+.value-title { margin-top: 8px; font-size: clamp(21px, 1.9vw, 25px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.35; }
+.value-text { margin-top: 12px; font-size: 15.5px; color: var(--muted); text-wrap: pretty; }
+
+/* =========================================================
+   03 HOW TO BUY
+   ========================================================= */
+.routes { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter); }
+.route-card {
+  grid-column: 1 / -1; position: relative;
+  display: flex; flex-direction: column; min-height: 440px;
+  padding: clamp(24px, 2.6vw, 36px);
+  border: 1px solid var(--ink);
+  transition: background-color .45s var(--ease), color .45s var(--ease);
+}
+@media (min-width: 960px) { .route-card { grid-column: span 4; } }
+.route-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.route-top .arrow { font-size: 32px; line-height: 1; }
+.route-for { display: block; margin-top: 4px; color: var(--muted); transition: color .45s; }
+.route-title { margin-top: clamp(40px, 5vw, 72px); font-size: clamp(30px, 3vw, 42px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; }
+.route-desc { margin-top: 14px; font-size: 15.5px; text-wrap: pretty; }
+.route-points { margin-top: 24px; border-top: 1px solid currentColor; }
+.route-points li { display: flex; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; transition: border-color .45s; }
+.route-points li::before { content: "—"; color: var(--accent); }
+.route-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: auto; padding-top: 32px; }
+@media (hover: hover) {
+  .route-card:hover { background: var(--ink); color: var(--bg); }
+  .route-card:hover .route-for { color: var(--muted-inv); }
+  .route-card:hover .route-points li { border-color: color-mix(in srgb, var(--bg) 22%, transparent); }
+  .route-card:hover .route-top .arrow { transform: rotate(45deg); }
+  .route-card .btn--accent:hover { background: var(--bg); color: var(--ink); }
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq-wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 40px; }
+.faq-aside, .faq-list { grid-column: 1 / -1; }
+.faq-aside p { max-width: 24em; color: var(--muted); }
+.faq-aside .link-arrow { margin-top: 12px; }
+@media (min-width: 1024px) {
+  .faq-aside { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + 40px); align-self: start; }
+  .faq-list { grid-column: 5 / -1; }
+}
+.faq-item { border-top: 1px solid var(--ink); }
+.faq-item:last-child { border-bottom: 1px solid var(--ink); }
+.faq-q button {
+  display: flex; align-items: center; gap: clamp(12px, 2vw, 24px); width: 100%; min-height: 76px;
+  padding: 20px 0; text-align: left;
+  font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.4;
+}
+.faq-no { flex: none; width: 2.4em; font-family: var(--font-en); font-size: 13px; font-weight: 600; color: var(--muted); }
+.faq-icon {
+  position: relative; flex: none; margin-left: auto; width: 32px; height: 32px;
+  border: 1px solid var(--ink); border-radius: 50%;
+  transition: background-color .3s, border-color .3s;
+}
+.faq-icon::before, .faq-icon::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.6px;
+  background: currentColor; transform: translate(-50%, -50%);
+  transition: transform .4s var(--ease);
+}
+.faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item.is-open .faq-icon { background: var(--accent); border-color: var(--accent); }
+.faq-item.is-open .faq-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.faq-a-inner p { padding: 0 0 28px calc(2.4em * 13 / 16 + clamp(12px, 2vw, 24px)); max-width: 46em; color: color-mix(in srgb, var(--ink) 80%, var(--bg)); text-wrap: pretty; }
+@media (max-width: 639px) { .faq-a-inner p { padding-left: 0; } }
+.js .faq-a {
+  display: grid; grid-template-rows: 0fr; visibility: hidden;
+  transition: grid-template-rows .5s var(--ease), visibility 0s linear .5s;
+}
+.js .faq-item.is-open .faq-a { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows .5s var(--ease), visibility 0s; }
+.faq-a-inner { overflow: hidden; min-height: 0; }
+
+/* =========================================================
+   04 ORDER FORM
+   ========================================================= */
+.order-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 56px; }
+.order-aside, .form { grid-column: 1 / -1; }
+@media (min-width: 1024px) {
+  .order-aside { grid-column: 1 / span 4; }
+  .form { grid-column: 6 / -1; }
+}
+.steps { border-top: 1px solid var(--ink); }
+.steps li { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.steps-no { flex: none; font-family: var(--font-serif); font-style: italic; font-size: 26px; line-height: 1.1; color: var(--accent); }
+.steps strong { font-size: 16px; }
+.steps p { font-size: 14px; color: var(--muted); }
+.contact-dl { margin-top: 40px; display: grid; gap: 14px; }
+.contact-dl > div { display: grid; gap: 2px; }
+.contact-dl dt { font-size: 13px; color: var(--muted); }
+.contact-dl dd { font-size: 15px; }
+.contact-dl .link-arrow { min-height: 32px; }
+
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px var(--gutter); align-content: start; }
+.field { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 0; border: 0; }
+@media (min-width: 640px) { .field--half { grid-column: span 1; } }
+.field-label { display: flex; align-items: baseline; gap: 6px; font-size: 14px; font-weight: 600; }
+legend.field-label { padding: 0; margin-bottom: 12px; }
+.req { color: var(--accent); font-weight: 700; }
+.field-hint { font-size: 13px; color: var(--muted); }
+.input {
+  width: 100%; min-height: 52px; padding: 12px 2px;
+  border: 0; border-bottom: 1px solid var(--ink); border-radius: 0;
+  background: transparent; font-size: 17px;
+  -webkit-appearance: none; appearance: none;
+  transition: background-color .2s;
+}
+.input::placeholder { color: var(--muted); opacity: .75; }
+.input:focus { outline: none; }
+.input:focus-visible, .input[aria-invalid="true"] { border-bottom: 2px solid var(--accent); padding-bottom: 11px; }
+.input:focus-visible { background: var(--surface); }
+textarea.input { min-height: 156px; padding: 14px 16px; border: 1px solid var(--ink); resize: vertical; line-height: 1.6; }
+textarea.input:focus-visible { border: 2px solid var(--accent); padding: 13px 15px; }
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; pointer-events: none;
+  border-right: 1.6px solid var(--ink); border-bottom: 1.6px solid var(--ink);
+  transform: translateY(-75%) rotate(45deg);
+}
+select.input { padding-right: 32px; cursor: pointer; }
+.field-row { display: flex; justify-content: space-between; gap: 12px; }
+.count { font-family: var(--font-en); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.chip span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+  border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; font-weight: 500;
+  transition: background-color .2s, color .2s;
+}
+.chip input:checked + span { background: var(--ink); color: var(--bg); }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) { .chip input:not(:checked):hover + span { background: var(--surface); } }
+
+.err { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+.err[hidden] { display: none; }
+.err::before {
+  content: "!"; flex: none; display: grid; place-items: center; width: 18px; height: 18px;
+  border-radius: 50%; background: var(--accent); color: var(--ink); font-size: 11px; font-weight: 800;
+}
+.check { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; font-weight: 500; cursor: pointer; }
+.check input { flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--ink); cursor: pointer; }
+.consent-detail { padding-left: 32px; font-size: 13px; color: var(--muted); }
+.form-submit { grid-column: 1 / -1; display: grid; gap: 14px; }
+.form-submit .btn { width: 100%; }
+.form-note { font-size: 13px; color: var(--muted); }
+@media (min-width: 640px) { .form-submit .btn { width: auto; justify-self: start; } }
+
+/* 요약 다이얼로그 */
+.summary {
+  width: min(640px, calc(100% - 32px)); max-height: min(88vh, 880px);
+  padding: 0; border: 0; background: var(--bg); color: var(--ink);
+  overflow: auto; overscroll-behavior: contain;
+  box-shadow: 0 40px 100px -30px rgba(22, 21, 19, .45);
+}
+.summary::backdrop { background: rgba(22, 21, 19, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.summary[open] { animation: dlgIn .5s var(--ease); }
+@keyframes dlgIn { from { opacity: 0; transform: translateY(28px); } }
+@media (max-width: 639px) {
+  .summary { width: 100%; max-width: 100%; max-height: 92vh; margin: auto 0 0; border-radius: 18px 18px 0 0; }
+}
+.summary-inner { padding: clamp(24px, 4vw, 40px); padding-bottom: calc(clamp(24px, 4vw, 40px) + env(safe-area-inset-bottom)); }
+.summary-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.summary-head h2 { margin-top: 6px; font-size: clamp(26px, 3.4vw, 34px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; }
+.summary-head .label { color: var(--muted); }
+.icon-btn { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--ink); border-radius: 50%; font-size: 22px; line-height: 1; }
+.summary-list { margin-top: 24px; border-top: 1px solid var(--ink); }
+.summary-list > div { display: grid; grid-template-columns: 6.2em 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.summary-list dt { padding-top: 2px; font-size: 13px; color: var(--muted); }
+.summary-list dd { font-size: 15px; white-space: pre-wrap; }
+.summary-q { margin-top: 28px; font-weight: 700; }
+.summary-q span { font-weight: 400; font-size: 13px; color: var(--muted); margin-left: 6px; }
+.sends { display: grid; gap: 8px; margin-top: 12px; }
+.send {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 16px;
+  width: 100%; padding: 16px 18px; text-align: left;
+  border: 1px solid var(--ink);
+  transition: background-color .25s, color .25s;
+}
+.send-name { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 700; }
+.send-desc { grid-column: 1; font-size: 13px; color: var(--muted); }
+.send .arrow { grid-column: 2; grid-row: 1 / span 2; font-size: 20px; }
+.send-badge { display: none; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.send.is-recommended { background: var(--ink); color: var(--bg); }
+.send.is-recommended .send-desc { color: var(--muted-inv); }
+.send.is-recommended .send-badge { display: inline-flex; }
+@media (hover: hover) {
+  .send:hover { background: var(--surface); }
+  .send.is-recommended:hover { background: var(--accent); color: var(--ink); }
+  .send.is-recommended:hover .send-desc { color: var(--ink); }
+}
+.summary-foot { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+/* 토스트 */
+.toast {
+  position: fixed; z-index: 200; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+  width: max-content; max-width: calc(100% - 32px); padding: 14px 20px; border-radius: 16px;
+  background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 500; text-align: center;
+  opacity: 0; transform: translate(-50%, 24px); pointer-events: none;
+  transition: opacity .3s, transform .45s var(--ease);
+}
+.toast.is-show { opacity: 1; transform: translate(-50%, 0); }
+dialog .toast { background: var(--accent); color: var(--ink); }
+
+/* =========================================================
+   FOOTER — 시그니처 ③ 피니시 라인
+   ========================================================= */
+.site-footer { background: var(--ink); color: var(--bg); }
+.finish { height: 24px; background: repeating-conic-gradient(var(--ink) 0 25%, var(--bg) 0 50%) 0 0 / 24px 24px; }
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding-top: clamp(40px, 5vw, 64px); }
+.footer-top .label { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); }
+.footer-thanks { font-size: 15px; color: var(--muted-inv); }
+.footer-slogan {
+  margin-block: clamp(28px, 4vw, 48px) clamp(56px, 7vw, 104px);
+  font-family: var(--font-en); font-weight: 600; font-stretch: 78%;
+  font-size: clamp(76px, 17vw, 260px); line-height: .86; letter-spacing: -0.05em;
+}
+.footer-slogan em { color: var(--accent); }
+.footer-grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 40px;
+  padding-bottom: 48px; border-bottom: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
+}
+.footer-brand { grid-column: 1 / -1; }
+.footer-brand p { margin-top: 18px; color: var(--muted-inv); font-size: 15px; }
+.footer-col { grid-column: span 6; }
+.footer-biz { grid-column: 1 / -1; }
+.footer-col .label { color: var(--muted-inv); margin-bottom: 14px; }
+.footer-col li a { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 15px; }
+@media (hover: hover) { .footer-col li a:hover, .biz a:hover { color: var(--accent); } }
+.biz { display: grid; gap: 6px; font-size: 13px; }
+.biz > div { display: flex; gap: 12px; }
+.biz dt { flex: none; width: 8.6em; color: var(--muted-inv); }
+.biz a { text-decoration: underline; text-underline-offset: 3px; margin-left: 6px; }
+@media (min-width: 768px) {
+  .footer-brand { grid-column: 1 / span 6; }
+  .footer-col { grid-column: span 3; }
+}
+@media (min-width: 1200px) {
+  .footer-brand { grid-column: 1 / span 3; }
+  .footer-col { grid-column: span 2; }
+  .footer-biz { grid-column: 8 / -1; }
+}
+.footer-bottom {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px;
+  padding-block: 24px calc(28px + env(safe-area-inset-bottom));
+  font-size: 13px; color: var(--muted-inv);
+}
+.footer-bottom ul { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 32px; }
+.footer-bottom strong { color: var(--bg); font-weight: 600; }
+
+/* =========================================================
+   제품 카드 → 상세 열기
+   ========================================================= */
+.product-3d {
+  position: absolute; z-index: 2; left: 14px; bottom: 14px;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 11px; border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent); color: var(--ink);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.product-3d::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.product-open { position: absolute; inset: 0; z-index: 3; cursor: zoom-in; }
+.product-open:focus-visible { outline-offset: -5px; }
+button.link-arrow { padding: 0; }
+.ph img { transition: opacity .6s var(--ease); }
+button.hero-cap { border: 0; cursor: pointer; }
+@media (hover: hover) { .hero-cap:hover { background: var(--ink); color: var(--bg); } }
+
+/* 로고 이야기 */
+.mark-card {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 32px;
+  align-items: center; margin-top: clamp(72px, 9vw, 136px); padding-top: clamp(32px, 4vw, 56px);
+  border-top: 1px solid var(--ink);
+}
+.mark-figure { grid-column: 1 / -1; display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--ink); }
+.mark-figure svg { width: 46%; height: auto; overflow: visible; }
+.mark-figure path { fill: none; stroke: var(--bg); stroke-width: 3.4; stroke-linecap: round; }
+.mark-figure circle { fill: var(--accent); }
+.js .mark-card .mark-figure path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease) .2s; }
+.js .mark-card .mark-figure path + path { transition-delay: .45s; }
+.js .mark-card .mark-figure circle { transform: scale(0); transform-origin: 17px 16px; transition: transform .7s var(--ease) 1.2s; }
+.js .mark-card.is-in .mark-figure path { stroke-dashoffset: 0; }
+.js .mark-card.is-in .mark-figure circle { transform: none; }
+.mark-copy { grid-column: 1 / -1; }
+.mark-copy .label { color: var(--muted); }
+.mark-copy h3 { margin-top: 12px; font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.3; }
+.mark-copy p:not(.label) { margin-top: 14px; color: var(--muted); max-width: 32em; text-wrap: pretty; }
+.mark-lockups { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.mark-lockups > span { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px; border: 1px solid var(--line); }
+.mark-lockups > span:nth-child(2) { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.mark-lockups > span:nth-child(3) { background: var(--accent); color: var(--ink); border-color: var(--accent); --mark-dot: var(--bg); }
+.mark-lockups .logo-mark { width: 27px; height: 18px; }
+.mark-lockups .logo-word { font-size: 16px; }
+@media (min-width: 900px) {
+  .mark-figure { grid-column: 1 / span 6; }
+  .mark-copy { grid-column: 8 / -1; }
+}
+
+/* =========================================================
+   제품 상세 (사진 갤러리 + 3D 뷰어)
+   ========================================================= */
+.pdp {
+  width: min(1280px, calc(100% - 48px)); height: min(860px, calc(100vh - 48px));
+  max-width: none; max-height: none; padding: 0; border: 0; overflow: hidden;
+  background: var(--bg); color: var(--ink);
+  box-shadow: 0 40px 120px -30px rgba(22, 21, 19, .5);
+}
+.pdp::backdrop { background: rgba(22, 21, 19, .6); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.pdp[open] { animation: dlgIn .5s var(--ease); }
+.pdp-close { position: absolute; z-index: 6; top: 16px; right: 16px; background: var(--bg); }
+.pdp-inner { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); height: 100%; }
+.pdp-media { position: relative; display: flex; flex-direction: column; min-height: 0; background: var(--surface); }
+.pdp-tabs {
+  position: absolute; z-index: 4; top: 16px; left: 16px;
+  display: inline-flex; padding: 4px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--line);
+}
+.pdp-tabs button { height: 36px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.pdp-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.pdp-tabs .dot { display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--accent); vertical-align: 2px; }
+.pdp-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.pdp-photo, .pdp-3d { position: absolute; inset: 0; }
+.pdp-photo[hidden], .pdp-3d[hidden] { display: none; }
+.pdp-photo { touch-action: pan-y; }
+.pdp-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-photo img.is-swap { animation: photoIn .5s var(--ease); }
+@keyframes photoIn { from { opacity: .2; } }
+.pdp-nav {
+  position: absolute; z-index: 3; top: 50%; width: 44px; height: 44px; margin-top: -22px;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--ink); font-size: 18px;
+}
+.pdp-prev { left: 16px; }
+.pdp-next { right: 16px; }
+.pdp-count { position: absolute; z-index: 3; right: 16px; bottom: 16px; padding: 7px 11px; border-radius: 999px; background: var(--bg); font-variant-numeric: tabular-nums; }
+.pdp-thumbs { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; background: var(--bg); border-top: 1px solid var(--line); scrollbar-width: thin; }
+.pdp-thumbs button { position: relative; flex: none; width: 68px; height: 68px; padding: 0; overflow: hidden; opacity: .62; outline-offset: 2px; transition: opacity .2s; }
+.pdp-thumbs button::after { content: ""; position: absolute; inset: 0; border: 2px solid transparent; }
+.pdp-thumbs button[aria-current="true"] { opacity: 1; }
+.pdp-thumbs button[aria-current="true"]::after { border-color: var(--ink); }
+.pdp-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-thumb-3d { display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--font-en); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.pdp-thumb-3d span { display: block; font-size: 9px; font-weight: 600; letter-spacing: .1em; color: var(--accent); }
+@media (hover: hover) { .pdp-thumbs button:hover { opacity: 1; } }
+
+.viewer {
+  position: absolute; inset: 0; outline: none; cursor: grab; touch-action: none;
+  background: radial-gradient(120% 90% at 50% 38%, var(--bg) 0%, var(--surface) 70%);
+}
+.viewer:active { cursor: grabbing; }
+.viewer:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+.viewer canvas { display: block; width: 100% !important; height: 100% !important; }
+.viewer-status { position: absolute; inset: 0; display: grid; place-content: center; gap: 14px; padding: 24px; text-align: center; color: var(--muted); font-size: 14px; pointer-events: none; }
+.viewer-status[hidden] { display: none; }
+.viewer-status .logo-mark { width: 44px; height: 30px; margin-inline: auto; animation: markPulse 1.4s ease-in-out infinite alternate; }
+@keyframes markPulse { from { opacity: .35; } }
+.viewer-tools { position: absolute; z-index: 3; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+.viewer-tools button {
+  display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px;
+  border-radius: 999px; border: 1px solid var(--ink); background: var(--bg); font-size: 13px; font-weight: 600;
+}
+.viewer-tools button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.viewer-help { position: absolute; z-index: 3; left: 16px; bottom: 22px; max-width: calc(100% - 290px); font-size: 12.5px; color: var(--muted); pointer-events: none; }
+
+.pdp-info { display: flex; flex-direction: column; min-height: 0; overflow-y: auto; padding: clamp(28px, 3.4vw, 52px); padding-top: 72px; overscroll-behavior: contain; }
+.pdp-meta { color: var(--muted); }
+.pdp-name { margin-top: 14px; font-family: var(--font-en); font-weight: 600; font-stretch: 84%; font-size: clamp(38px, 4vw, 58px); line-height: .98; letter-spacing: -0.04em; }
+.pdp-kr { margin-top: 8px; color: var(--muted); }
+.pdp-price { margin-top: 18px; font-family: var(--font-en); font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pdp-price span { font-family: var(--font-kr); font-size: 16px; font-weight: 500; margin-left: 2px; }
+.pdp-desc { margin-top: 16px; font-size: 16.5px; text-wrap: pretty; }
+.pdp-features { margin-top: 24px; border-top: 1px solid var(--ink); }
+.pdp-features li { display: flex; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.pdp-features li::before { content: "—"; color: var(--accent); flex: none; }
+.pdp-specs { display: grid; gap: 0; margin-top: 24px; }
+.pdp-specs > div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.pdp-specs dt { color: var(--muted); }
+.pdp-cta { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 28px; }
+.pdp-note { margin-top: 14px; font-size: 13px; color: var(--muted); }
+.pdp-note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 899px) {
+  .pdp { width: 100%; height: 100%; margin: 0; }
+  .pdp-inner { display: block; height: 100%; overflow-y: auto; overscroll-behavior: contain; }
+  .pdp-media { height: min(80vh, 132vw); }
+  .pdp-thumbs { gap: 6px; padding: 10px 12px; }
+  .pdp-thumbs button { width: 58px; height: 58px; }
+  .pdp-info { overflow: visible; padding: 28px var(--pad) calc(40px + env(safe-area-inset-bottom)); }
+  .pdp-close { top: 12px; right: 12px; }
+  .pdp-tabs { top: 12px; left: 12px; }
+  .viewer-help { display: none; }
+  .pdp-cta { grid-template-columns: 1fr; }
+  .pdp-cta .btn { width: 100%; }
+}
+
+/* =========================================================
+   REDUCED MOTION — 위치 이동 애니메이션 끄기
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .hero-title .line > span,
+  .js .hero-img > .ph,
+  .js .hero-track rect,
+  .summary[open],
+  .mnav.is-open .mnav-list li { animation: none; transform: none; clip-path: none; stroke-dashoffset: 0; }
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .js .sec-head .lane-line { transform: none; transition: none; }
+  .product-media > .ph, .product-hover, .product-name { transition: none; }
+}
+</style>
+</head>
+
+<body>
+<!-- 브랜드 심볼 "Lane Bend": 트랙 곡선의 두 레인이 가운데 러너(당신)를 감싸는 형태 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="rw-mark" viewBox="0 0 48 32">
+    <path d="M45 3H17a13 13 0 0 0 0 26h28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M45 9.6H17a6.4 6.4 0 0 0 0 12.8h28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="17" cy="16" r="3" style="fill: var(--mark-dot, #E5502F)"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">본문 바로가기</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#top" aria-label="러너스위드 홈">
+      <svg class="logo-mark" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#rw-mark"/></svg>
+      <span class="logo-word" aria-hidden="true">Runners<em>with</em></span>
+    </a>
+
+    <nav class="nav" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="#collection" data-nav="collection"><span class="nav-no" aria-hidden="true">01</span>제품</a></li>
+        <li><a href="#story" data-nav="story"><span class="nav-no" aria-hidden="true">02</span>브랜드 이야기</a></li>
+        <li><a href="#buy" data-nav="buy"><span class="nav-no" aria-hidden="true">03</span>구매·문의</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <!-- 시그니처: 지금까지 달린 거리 (장식용) -->
+      <p class="km" aria-hidden="true"><span class="km-val" data-km-out>0.00</span><span class="km-unit">KM</span></p>
+      <div class="lang" role="group" aria-label="언어 선택">
+        <button type="button" data-lang="ko" aria-pressed="true">KR</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <a class="btn btn--accent btn--sm" href="#order"><span>주문<span class="u-sm-up">하기</span></span> <span class="arrow arrow--d" aria-hidden="true">↘</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav">
+        <span class="menu-btn__bars" aria-hidden="true"><i></i><i></i></span>
+        <span class="sr-only menu-btn__label">메뉴 열기</span>
+      </button>
+    </div>
+  </div>
+  <div class="pace" aria-hidden="true">
+    <div class="pace__ticks"></div>
+    <div class="pace__fill"><span class="pace__runner"><span class="pace__chip" data-km-out>0.00</span></span></div>
+  </div>
+</header>
+
+<!-- 모바일 메뉴 -->
+<div class="mnav" id="mnav" hidden>
+  <nav aria-label="모바일 메뉴">
+    <ul class="mnav-list">
+      <li style="--i:0"><a class="mnav-link" href="#collection"><span class="mnav-no">01</span>제품<span class="arrow arrow--d" aria-hidden="true">↘</span></a></li>
+      <li style="--i:1"><a class="mnav-link" href="#story"><span class="mnav-no">02</span>브랜드 이야기<span class="arrow arrow--d" aria-hidden="true">↘</span></a></li>
+      <li style="--i:2"><a class="mnav-link" href="#buy"><span class="mnav-no">03</span>구매·문의<span class="arrow arrow--d" aria-hidden="true">↘</span></a></li>
+      <li style="--i:3"><a class="mnav-link" href="#order"><span class="mnav-no">04</span>주문서 작성<span class="arrow arrow--d" aria-hidden="true">↘</span></a></li>
+    </ul>
+  </nav>
+  <div class="mnav-foot">
+    <div class="lang" role="group" aria-label="언어 선택">
+      <button type="button" data-lang="ko" aria-pressed="true">KR</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+    <a class="link-arrow" href="#order" data-link="kakao"><span class="t">카카오톡 채널 상담</span> <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top" data-nav="" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow label" data-reveal>
+          <span class="eyebrow-dot" aria-hidden="true"></span>2026 F/W Collection
+          <span class="eyebrow-sep" aria-hidden="true">—</span>Shoes · Apparel · Gear
+        </p>
+        <h1 class="hero-title" id="hero-title" lang="en">
+          <span class="line" style="--i:0"><span>Run the</span></span>
+          <span class="line" style="--i:1"><span>everyday,</span></span>
+          <span class="line" style="--i:2"><span><em>with</em> you.</span></span>
+        </h1>
+        <p class="hero-sub" data-reveal style="--d:3">출근 전 5km부터 주말의 하프 마라톤까지,<br>매일 곁에서 함께 달리는 기어를 만들어요.</p>
+        <div class="hero-cta" data-reveal style="--d:4">
+          <a class="btn btn--ink" href="#collection">컬렉션 보기 <span class="arrow arrow--d" aria-hidden="true">↘</span></a>
+          <a class="btn btn--line" href="#order" data-prefill-type="group">단체·도매 문의 <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- 배경: 육상 트랙 곡선 -->
+        <svg class="hero-track" viewBox="0 0 800 520" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="798" height="518" rx="259" pathLength="1"/>
+          <rect x="41" y="41" width="718" height="438" rx="219" pathLength="1"/>
+          <rect x="81" y="81" width="638" height="358" rx="179" pathLength="1"/>
+          <rect x="121" y="121" width="558" height="278" rx="139" pathLength="1"/>
+        </svg>
+
+        <div class="hero-img hero-img--a" data-motion>
+          <figure class="ph">
+            <!-- 브랜드 루프 영상(10초·무음, video/hero-loop 프로젝트에서 렌더링). 재생은 모션 버튼·동작 줄이기 설정을 따라요 -->
+            <video class="hero-video" id="hero-video" muted loop playsinline preload="metadata"
+                   poster="assets/images/hero-a.webp" width="864" height="1080"
+                   aria-label="브랜드 루프 영상: 오트밀 러닝화, 트랙 위 질주, 해 뜨는 한강의 러닝 크루, 야간 러닝 장면이 트랙 레인처럼 다섯 줄로 달려 들어오며 바뀌어요">
+              <source src="assets/video/hero-loop.webm" type="video/webm">
+              <source src="assets/video/hero-loop.mp4" type="video/mp4">
+            </video>
+            <figcaption class="hero-cap label">Brand film · 10s</figcaption>
+          </figure>
+        </div>
+        <div class="hero-img hero-img--b" data-motion>
+          <figure class="ph">
+            <!-- 가상 이미지(Codex 생성) — 실제 촬영 사진으로 교체하세요 -->
+            <img src="assets/images/hero-b.webp"
+                 alt="해 뜨는 서울 골목길을 달리는 러너의 하반신, 차콜 러닝 쇼츠와 오트밀 러닝화가 역광에 비치는 로우 앵글 컷"
+                 width="960" height="1440" decoding="async">
+            <figcaption><button class="hero-cap label" type="button" data-open-product="lane-04">04<span class="cap-name"> — Lane Shorts</span> <span aria-hidden="true">↗</span><span class="sr-only"> 상세 보기</span></button></figcaption>
+          </figure>
+        </div>
+
+        <svg class="hero-badge" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+          <defs><path id="badgePath" d="M60 60 m-43 0 a43 43 0 1 1 86 0 a43 43 0 1 1 -86 0"/></defs>
+          <circle class="badge-bg" cx="60" cy="60" r="60"/>
+          <g class="badge-ring" data-motion>
+            <text class="badge-text"><textPath href="#badgePath" textLength="268" lengthAdjust="spacing">RUN WITH YOU · EVERYDAY MILES · 42.195 ·</textPath></text>
+          </g>
+          <path class="badge-arrow" d="M50 70 L70 50 M56 50 H70 V64"/>
+        </svg>
+
+        <button class="motion-toggle" type="button" data-state="playing">
+          <span class="motion-toggle__icon" aria-hidden="true"></span>
+          <span class="motion-toggle__text">모션 일시정지</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="container hero-foot" data-reveal style="--d:5">
+      <p class="label"><span class="start-flag" aria-hidden="true">▶</span> Start — 스크롤 한 번이 한 걸음, 페이지 끝이 42.195km예요</p>
+      <p class="label u-sm-up">Seoul · Everyday running gear</p>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <section class="marquee" aria-label="브랜드 메시지">
+    <p class="sr-only">Run with you. 오늘의 5km를 함께. Everyday miles. 느려도 괜찮아요, 같이 가요. Crews and local shops welcome. 당신과 함께 달리는 일상을 위한 기어.</p>
+    <div class="marquee-track" data-motion aria-hidden="true">
+      <ul class="marquee-group">
+        <li lang="en">Run <em>with</em> you</li>
+        <li>오늘의 5km를 함께</li>
+        <li lang="en">Everyday <em>miles</em></li>
+        <li>느려도 괜찮아요, 같이 가요</li>
+        <li lang="en">Crews &amp; local shops <em>welcome</em></li>
+        <li>당신과 함께 달리는 일상을 위한 기어</li>
+      </ul>
+      <ul class="marquee-group">
+        <li lang="en">Run <em>with</em> you</li>
+        <li>오늘의 5km를 함께</li>
+        <li lang="en">Everyday <em>miles</em></li>
+        <li>느려도 괜찮아요, 같이 가요</li>
+        <li lang="en">Crews &amp; local shops <em>welcome</em></li>
+        <li>당신과 함께 달리는 일상을 위한 기어</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 01 COLLECTION ===================== -->
+  <section class="section" id="collection" data-nav="collection" data-km="10" aria-labelledby="collection-title">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <p class="sec-meta label"><span class="sec-no">01</span><span>Collection</span><span class="sec-split">Split · 10.0 km</span></p>
+        <span class="lane-line" aria-hidden="true"></span>
+        <h2 class="sec-title" id="collection-title">
+          <span class="sec-title-en" lang="en">Gear for <em>daily</em> miles</span>
+          <span class="sec-title-kr">매일의 러닝을 위한 여섯 가지</span>
+        </h2>
+        <p class="sec-lead">화려한 기능보다 오래 쓰는 기본기에 집중했어요. 출근 전 조깅부터 주말 장거리까지, 손이 먼저 가는 것들만 골랐어요.</p>
+      </header>
+
+      <ul class="products" role="list">
+        <!-- 제품 01 -->
+        <li data-reveal style="--d:0">
+          <article class="product" aria-labelledby="p1-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p01-main.webp"
+                     alt="오트밀 배경 위 오트밀 니트 어퍼와 크림색 미드솔의 데일리 러닝화, 뒤꿈치에 트랙 레드 힐 루프"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-chip label">Best</span>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="daily-01"><span class="sr-only">With Daily 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.01</span><span>러닝화 · Shoes</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p1-name" lang="en">With Daily</h3>
+              <p class="product-price"><data value="139000">139,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">데일리 트레이너</p>
+            <p class="product-desc">매일 5~10km, 발이 먼저 기억하는 부드러운 쿠션.</p>
+            <p class="product-spec">268g · 드롭 8mm · 230–300</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:daily-01">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: With Daily (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="daily-01"><span class="t">단체 문의</span><span class="sr-only">: With Daily</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="daily-01"><span class="t">상세·3D</span><span class="sr-only">: With Daily</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+
+        <!-- 제품 02 -->
+        <li data-reveal style="--d:1">
+          <article class="product" aria-labelledby="p2-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p02-main.webp"
+                     alt="붉은 육상 트랙의 흰 레인 라인 옆에 놓인 검정 메시 어퍼와 흰색 미드솔의 템포 러닝화 한 켤레"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-chip label">New</span>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="tempo-02"><span class="sr-only">With Tempo 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.02</span><span>러닝화 · Shoes</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p2-name" lang="en">With Tempo</h3>
+              <p class="product-price"><data value="169000">169,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">템포 레이서</p>
+            <p class="product-desc">가볍게 튀어 오르는 반발력, 기록을 줄이고 싶은 날에.</p>
+            <p class="product-spec">224g · 드롭 6mm · 나일론 플레이트</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:tempo-02">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: With Tempo (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="tempo-02"><span class="t">단체 문의</span><span class="sr-only">: With Tempo</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="tempo-02"><span class="t">상세·3D</span><span class="sr-only">: With Tempo</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+
+        <!-- 제품 03 -->
+        <li data-reveal style="--d:2">
+          <article class="product" aria-labelledby="p3-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p03-main.webp"
+                     alt="나무 옷걸이에 걸린 오프화이트 메시 러닝 싱글렛, 왼쪽 가슴에 작은 트랙 레드 점"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="breeze-03"><span class="sr-only">Breeze Singlet 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.03</span><span>의류 · Apparel</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p3-name" lang="en">Breeze Singlet</h3>
+              <p class="product-price"><data value="49000">49,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">브리즈 싱글렛</p>
+            <p class="product-desc">땀이 빠르게 마르는 메시 원단, 한여름 장거리용.</p>
+            <p class="product-spec">92g · 남녀공용 XS–2XL</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:breeze-03">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: Breeze Singlet (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="breeze-03"><span class="t">단체 문의</span><span class="sr-only">: Breeze Singlet</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="breeze-03"><span class="t">상세·3D</span><span class="sr-only">: Breeze Singlet</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+
+        <!-- 제품 04 -->
+        <li data-reveal style="--d:0">
+          <article class="product" aria-labelledby="p4-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p04-main.webp"
+                     alt="오트밀 종이 위에 펼친 차콜 러닝 쇼츠, 뒤 지퍼 포켓에 에너지 젤이 꽂혀 있고 밑단에 트랙 레드 파이핑"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="lane-04"><span class="sr-only">Lane Shorts 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.04</span><span>의류 · Apparel</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p4-name" lang="en">Lane Shorts 5″</h3>
+              <p class="product-price"><data value="59000">59,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">레인 쇼츠</p>
+            <p class="product-desc">흔들림 없는 허리 포켓, 에너지 젤 두 개와 휴대폰까지.</p>
+            <p class="product-spec">5인치 · 이너 일체형 · S–XL</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:lane-04">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: Lane Shorts (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="lane-04"><span class="t">단체 문의</span><span class="sr-only">: Lane Shorts</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="lane-04"><span class="t">상세·3D</span><span class="sr-only">: Lane Shorts</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+
+        <!-- 제품 05 -->
+        <li data-reveal style="--d:1">
+          <article class="product" aria-labelledby="p5-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p05-main.webp"
+                     alt="오트밀 종이 위 검정 슬림 러닝벨트, 반쯤 열린 지퍼 포켓에 스마트폰과 열쇠가 보이고 반사 스트립과 트랙 레드 지퍼 손잡이"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-chip label">Crew Pick</span>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="pace-05"><span class="sr-only">Pace Belt 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.05</span><span>장비 · Gear</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p5-name" lang="en">Pace Belt</h3>
+              <p class="product-price"><data value="32000">32,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">페이스 러닝벨트</p>
+            <p class="product-desc">몸에 착 붙어 뛰어도 출렁이지 않는 슬림 벨트.</p>
+            <p class="product-spec">6.7인치 폰 수납 · 반사 로고</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:pace-05">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: Pace Belt (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="pace-05"><span class="t">단체 문의</span><span class="sr-only">: Pace Belt</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="pace-05"><span class="t">상세·3D</span><span class="sr-only">: Pace Belt</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+
+        <!-- 제품 06 -->
+        <li data-reveal style="--d:2">
+          <article class="product" aria-labelledby="p6-name">
+            <div class="product-media">
+              <div class="ph">
+                <img src="assets/images/p06-main.webp"
+                     alt="어두운 배경에서 플래시를 받아 챙 테두리 반사 파이핑이 은색으로 빛나는 검정 러닝 캡 클로즈업"
+                     width="960" height="1440" loading="lazy" decoding="async">
+              </div>
+              <span class="product-3d label" aria-hidden="true">360° 3D</span>
+              <span class="product-hover" aria-hidden="true">↗</span>
+              <button class="product-open" type="button" data-open-product="night-06"><span class="sr-only">Night Run Cap 상세 사진·3D 보기</span></button>
+            </div>
+            <p class="product-meta label"><span>No.06</span><span>장비 · Gear</span></p>
+            <div class="product-head">
+              <h3 class="product-name" id="p6-name" lang="en">Night Run Cap</h3>
+              <p class="product-price"><data value="35000">35,000</data><span>원</span></p>
+            </div>
+            <p class="product-kr">나이트 런 캡</p>
+            <p class="product-desc">퇴근 후 야간 러닝을 위한 리플렉티브 러닝 캡.</p>
+            <p class="product-spec">48g · 접이식 챙 · 프리사이즈</p>
+            <div class="product-actions">
+              <a class="btn btn--ink btn--sm" href="#order" data-link="product:night-06">구매하기 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">: Night Run Cap (스마트스토어, 새 창)</span></a>
+              <a class="link-arrow" href="#order" data-prefill-type="group" data-prefill-product="night-06"><span class="t">단체 문의</span><span class="sr-only">: Night Run Cap</span> <span class="arrow arrow--r" aria-hidden="true">→</span></a>
+              <button class="link-arrow" type="button" data-open-product="night-06"><span class="t">상세·3D</span><span class="sr-only">: Night Run Cap</span> <span class="arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 02 STORY ===================== -->
+  <section class="section" id="story" data-nav="story" data-km="21.1" aria-labelledby="story-title">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <p class="sec-meta label"><span class="sec-no">02</span><span>Our story</span><span class="sec-split">Half · 21.1 km</span></p>
+        <span class="lane-line" aria-hidden="true"></span>
+        <h2 class="sec-title" id="story-title">
+          <span class="sec-title-en" lang="en">Made to run <em>beside</em> you</span>
+          <span class="sec-title-kr">브랜드 이야기</span>
+        </h2>
+      </header>
+
+      <div class="story-grid">
+        <p class="statement" data-reveal>기록보다 오래 남는 건,<br><em>누군가와 함께 달린 아침</em>이었어요.</p>
+        <div class="story-body" data-reveal style="--d:1">
+          <p>러너스위드는 동네 새벽 러닝 크루에서 시작했어요. 매주 같은 자리에 모여 달리면서 알게 됐죠. 사람을 다시 뛰게 만드는 건 최고 기록이 아니라 발이 편한 신발, 쓸리지 않는 옷, 그리고 옆에서 같이 뛰는 누군가라는 걸요.</p>
+          <p>그래서 우리는 ‘가장 빠른 기어’보다 ‘매일 손이 가는 기어’를 만들어요. 혼자 뛰는 날에도, 크루와 뛰는 날에도 당신 곁에서 같이 달릴 수 있도록요.</p>
+          <p class="story-sign label">— Runners With Team</p>
+        </div>
+        <figure class="story-figure" data-reveal>
+          <div class="ph">
+            <!-- 가상 이미지(Codex 생성) — 실제 크루 사진으로 교체하세요 -->
+            <img src="assets/images/story.webp"
+                 alt="해 뜨는 한강 산책로를 나란히 달리는 러닝 크루 여섯 명의 뒷모습, 멀리 도시 스카이라인과 다리가 보이는 와이드 컷"
+                 width="1536" height="1024" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="label"><span>Sunday, 6:00 AM</span><span>일요일 새벽, 우리가 처음 모였던 강변 산책로</span></figcaption>
+        </figure>
+      </div>
+
+      <ul class="values" role="list">
+        <li class="value" data-reveal style="--d:0">
+          <p class="value-no" aria-hidden="true">01</p>
+          <p class="value-en label" lang="en">Daily-proof</p>
+          <h3 class="value-title">매일 신어도 버티는 것만</h3>
+          <p class="value-text">출시 전 팀원과 크루가 직접 300km 이상 신고 달려봐요. 매일의 러닝을 버티지 못하면 내놓지 않아요.</p>
+        </li>
+        <li class="value" data-reveal style="--d:1">
+          <p class="value-no" aria-hidden="true">02</p>
+          <p class="value-en label" lang="en">Every pace</p>
+          <h3 class="value-title">모든 페이스를 위한 핏</h3>
+          <p class="value-text">230부터 300까지 5mm 단위 사이즈와 체형별 핏 가이드를 준비했어요. 4분 페이스도 7분 페이스도 같은 러너니까요.</p>
+        </li>
+        <li class="value" data-reveal style="--d:2">
+          <p class="value-no" aria-hidden="true">03</p>
+          <p class="value-en label" lang="en">Run local</p>
+          <h3 class="value-title">동네와 함께 달려요</h3>
+          <p class="value-text">동네 러닝샵·크루와 함께 제품을 테스트하고, 소규모 매장도 부담 없는 도매 조건을 열어두고 있어요.</p>
+        </li>
+      </ul>
+
+      <!-- 로고 이야기 -->
+      <div class="mark-card" data-reveal>
+        <div class="mark-figure">
+          <svg viewBox="0 0 48 32" aria-hidden="true" focusable="false">
+            <path d="M45 3H17a13 13 0 0 0 0 26h28" pathLength="1"/>
+            <path d="M45 9.6H17a6.4 6.4 0 0 0 0 12.8h28" pathLength="1"/>
+            <circle cx="17" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="mark-copy">
+          <p class="label" lang="en">Our mark — Lane Bend</p>
+          <h3>두 개의 레인이 가운데의 당신을 감싸요</h3>
+          <p>육상 트랙의 곡선 구간에서 두 레인이 가운데 점을 감싸 안는 모양이에요. 점은 오늘 달리는 당신, 레인은 곁에서 같은 방향으로 함께 달리는 우리예요. 영문 워드마크의 ‘with’만 이탤릭으로 기울인 것도 같은 이유예요.</p>
+          <div class="mark-lockups" aria-hidden="true">
+            <span><svg class="logo-mark" viewBox="0 0 48 32"><use href="#rw-mark"/></svg><span class="logo-word">Runners<em>with</em></span></span>
+            <span><svg class="logo-mark" viewBox="0 0 48 32"><use href="#rw-mark"/></svg><span class="logo-word">Runners<em>with</em></span></span>
+            <span><svg class="logo-mark" viewBox="0 0 48 32"><use href="#rw-mark"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 03 HOW TO BUY ===================== -->
+  <section class="section" id="buy" data-nav="buy" data-km="30" aria-labelledby="buy-title">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <p class="sec-meta label"><span class="sec-no">03</span><span>How to buy</span><span class="sec-split">Split · 30.0 km</span></p>
+        <span class="lane-line" aria-hidden="true"></span>
+        <h2 class="sec-title" id="buy-title">
+          <span class="sec-title-en" lang="en">Three ways to <em>join</em> the run</span>
+          <span class="sec-title-kr">구매 방법</span>
+        </h2>
+        <p class="sec-lead">혼자 달리는 러너도, 50명 크루도, 동네 러닝샵도. 각자에게 맞는 길로 안내해 드려요.</p>
+      </header>
+
+      <ul class="routes" role="list">
+        <li class="route-card" data-reveal style="--d:0">
+          <div class="route-top label">
+            <div><span>Route 01</span><span class="route-for" lang="en">For you</span></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3 class="route-title">개인 구매</h3>
+          <p class="route-desc">스마트스토어에서 바로 결제하거나, 사이즈가 고민되면 카카오톡으로 먼저 물어봐 주세요.</p>
+          <ul class="route-points">
+            <li>1개부터 바로 구매</li>
+            <li>3만원 이상 무료배송</li>
+            <li>러닝화 사이즈 교환 1회 무료</li>
+          </ul>
+          <div class="route-cta">
+            <a class="btn btn--accent" href="#order" data-link="store">스마트스토어 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(새 창)</span></a>
+            <a class="link-arrow" href="#order" data-link="kakao"><span class="t">카카오톡 사이즈 상담</span> <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="route-card" data-reveal style="--d:1">
+          <div class="route-top label">
+            <div><span>Route 02</span><span class="route-for" lang="en">For crews</span></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3 class="route-title">단체 구매</h3>
+          <p class="route-desc">러닝 크루, 회사 동호회, 대회 기념품까지. 수량과 일정만 알려주시면 견적을 보내드려요.</p>
+          <ul class="route-points">
+            <li>같은 제품 10개부터 단체 할인</li>
+            <li>크루명·로고 인쇄 (30개부터)</li>
+            <li>시안 확정 후 제작 2~3주</li>
+          </ul>
+          <div class="route-cta">
+            <a class="btn btn--accent" href="#order" data-prefill-type="group">단체 견적 문의 <span class="arrow arrow--d" aria-hidden="true">↘</span></a>
+            <a class="link-arrow" href="#order" data-link="kakao"><span class="t">카카오톡 문의</span> <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="route-card" data-reveal style="--d:2">
+          <div class="route-top label">
+            <div><span>Route 03</span><span class="route-for" lang="en">For shops</span></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3 class="route-title">협업·도매</h3>
+          <p class="route-desc">러닝샵·편집숍 입점과 브랜드 협업을 기다려요. 소규모 매장도 부담 없이 시작할 수 있어요.</p>
+          <ul class="route-points">
+            <li>사업자 대상 도매가 제공</li>
+            <li>최소 30개부터 사입 가능</li>
+            <li>매장용 샘플 키트 대여</li>
+          </ul>
+          <div class="route-cta">
+            <a class="btn btn--accent" href="#order" data-prefill-type="wholesale">도매 문의 <span class="arrow arrow--d" aria-hidden="true">↘</span></a>
+            <a class="link-arrow" href="#order" data-link="email"><span class="t">이메일 보내기</span> <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" id="faq" data-nav="buy" data-km="36" aria-labelledby="faq-title">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <p class="sec-meta label"><span class="sec-no">Q&amp;A</span><span>FAQ</span><span class="sec-split">Split · 36.0 km</span></p>
+        <span class="lane-line" aria-hidden="true"></span>
+        <h2 class="sec-title" id="faq-title">
+          <span class="sec-title-en" lang="en">Before you <em>lace</em> up</span>
+          <span class="sec-title-kr">자주 묻는 질문</span>
+        </h2>
+      </header>
+
+      <div class="faq-wrap">
+        <div class="faq-aside" data-reveal>
+          <p>찾는 답이 없다면 카카오톡 채널로 편하게 물어봐 주세요. 평일 10시부터 17시까지, 보통 1시간 안에 답해요.</p>
+          <a class="link-arrow" href="#order" data-link="kakao"><span class="t">카카오톡 채널 열기</span> <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="faq-list" data-reveal style="--d:1">
+          <div class="faq-item">
+            <h3 class="faq-q">
+              <button type="button" id="faq-1-btn" aria-expanded="false" aria-controls="faq-1">
+                <span class="faq-no" aria-hidden="true">Q1</span><span>배송은 얼마나 걸리나요?</span><span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-1-btn">
+              <div class="faq-a-inner"><p>평일 오후 2시 전에 결제하면 당일 출고하고, 보통 1~2일 안에 도착해요. 3만원 이상 무료배송이며 제주·도서산간 지역은 추가 배송비가 붙을 수 있어요. 단체·제작 주문은 별도 일정으로 안내해 드려요.</p></div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">
+              <button type="button" id="faq-2-btn" aria-expanded="false" aria-controls="faq-2">
+                <span class="faq-no" aria-hidden="true">Q2</span><span>교환·환불은 어떻게 하나요?</span><span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-2-btn">
+              <div class="faq-a-inner"><p>상품을 받은 날로부터 7일 이내, 착용·세탁 흔적이 없다면 교환·환불할 수 있어요. 러닝화 사이즈 교환은 1회 무료예요. 실내에서 가볍게 신어본 정도는 괜찮지만, 야외 착용 후에는 어려워요. 로고 인쇄 같은 제작 상품은 교환·환불이 제한돼요.</p></div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">
+              <button type="button" id="faq-3-btn" aria-expanded="false" aria-controls="faq-3">
+                <span class="faq-no" aria-hidden="true">Q3</span><span>사이즈는 어떻게 고르나요?</span><span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-3-btn">
+              <div class="faq-a-inner"><p>러닝화는 평소 신는 러닝화와 같은 정사이즈를 추천해요. 발볼이 넓거나 장거리 위주라면 5mm 크게 골라주세요. 의류는 제품 상세의 실측표를 확인해 주시고, 발 길이와 평소 사이즈를 카카오톡으로 보내주시면 직접 추천해 드려요.</p></div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">
+              <button type="button" id="faq-4-btn" aria-expanded="false" aria-controls="faq-4">
+                <span class="faq-no" aria-hidden="true">Q4</span><span>단체 주문은 몇 개부터 가능한가요?</span><span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-4-btn">
+              <div class="faq-a-inner"><p>같은 제품 기준 10개부터 단체 할인이 적용돼요. 크루명·로고 인쇄는 의류·캡 30개부터 가능하고, 시안 확정 후 제작까지 2~3주 걸려요. 대회나 행사 날짜가 정해져 있다면 문의 폼의 ‘희망 일정’에 꼭 적어주세요.</p></div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">
+              <button type="button" id="faq-5-btn" aria-expanded="false" aria-controls="faq-5">
+                <span class="faq-no" aria-hidden="true">Q5</span><span>매장 입점(도매)도 가능한가요?</span><span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-5" role="region" aria-labelledby="faq-5-btn">
+              <div class="faq-a-inner"><p>네, 사업자등록이 된 러닝샵·편집숍·체육시설이라면 가능해요. 아래 문의 폼에서 ‘협업·도매’를 선택하고 매장 정보를 남겨주시면 도매가표와 샘플 키트 안내를 보내드려요.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 ORDER ===================== -->
+  <section class="section" id="order" data-nav="buy" data-km="40" aria-labelledby="order-title">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <p class="sec-meta label"><span class="sec-no">04</span><span>Order &amp; contact</span><span class="sec-split">Split · 40.0 km</span></p>
+        <span class="lane-line" aria-hidden="true"></span>
+        <h2 class="sec-title" id="order-title">
+          <span class="sec-title-en" lang="en">Let’s run <em>together</em></span>
+          <span class="sec-title-kr">주문·문의하기</span>
+        </h2>
+        <p class="sec-lead">남겨주신 내용은 바로 전송되지 않아요. 한 번 정리해서 보여드리고, 편한 채널을 골라 보내면 끝이에요.</p>
+      </header>
+
+      <div class="order-grid">
+        <aside class="order-aside" data-reveal aria-label="주문 안내">
+          <ol class="steps">
+            <li><span class="steps-no" aria-hidden="true">01</span><div><strong>폼 작성</strong><p>1분이면 충분해요.</p></div></li>
+            <li><span class="steps-no" aria-hidden="true">02</span><div><strong>요약 확인</strong><p>빠진 내용이 없는지 한 번 더 봐요.</p></div></li>
+            <li><span class="steps-no" aria-hidden="true">03</span><div><strong>채널 선택</strong><p>이메일·카카오톡·스마트스토어 중 편한 곳으로 보내요.</p></div></li>
+          </ol>
+          <dl class="contact-dl">
+            <div><dt>카카오톡 채널</dt><dd><a class="link-arrow" href="#order" data-link="kakao"><span class="t">@러너스위드</span> <span class="arrow" aria-hidden="true">↗</span></a></dd></div>
+            <div><dt>이메일</dt><dd><a class="link-arrow" href="#order" data-link="email"><span class="t" data-text="email">hello@example.com</span> <span class="arrow" aria-hidden="true">↗</span></a></dd></div>
+            <div><dt>운영 시간</dt><dd>평일 10:00–17:00 · 주말·공휴일 휴무</dd></div>
+            <div><dt>답변</dt><dd>영업일 기준 24시간 이내</dd></div>
+          </dl>
+        </aside>
+
+        <form class="form" id="order-form" novalidate data-reveal style="--d:1" aria-describedby="form-note">
+          <div class="field field--half">
+            <label class="field-label" for="f-name">이름 <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" required maxlength="40" aria-describedby="f-name-err" placeholder="홍길동">
+            <p class="err" id="f-name-err" hidden></p>
+          </div>
+          <div class="field field--half">
+            <label class="field-label" for="f-contact">연락처 <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-contact" name="contact" type="text" autocomplete="tel" required maxlength="80" aria-describedby="f-contact-hint f-contact-err" placeholder="010-0000-0000">
+            <p class="field-hint" id="f-contact-hint">휴대폰 번호 또는 이메일 모두 괜찮아요.</p>
+            <p class="err" id="f-contact-err" hidden></p>
+          </div>
+
+          <fieldset class="field">
+            <legend class="field-label">문의 유형 <span class="req" aria-hidden="true">*</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="type" value="personal" checked><span>개인 구매</span></label>
+              <label class="chip"><input type="radio" name="type" value="group"><span>단체 구매</span></label>
+              <label class="chip"><input type="radio" name="type" value="wholesale"><span>협업·도매</span></label>
+              <label class="chip"><input type="radio" name="type" value="etc"><span>기타</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label class="field-label" for="f-product">제품</label>
+            <div class="select-wrap">
+              <select class="input" id="f-product" name="product">
+                <option value="">선택 안 함 · 상담 후 결정</option>
+                <optgroup label="러닝화">
+                  <option value="daily-01">With Daily — 데일리 트레이너</option>
+                  <option value="tempo-02">With Tempo — 템포 레이서</option>
+                </optgroup>
+                <optgroup label="의류">
+                  <option value="breeze-03">Breeze Singlet — 브리즈 싱글렛</option>
+                  <option value="lane-04">Lane Shorts 5″ — 레인 쇼츠</option>
+                </optgroup>
+                <optgroup label="장비">
+                  <option value="pace-05">Pace Belt — 페이스 러닝벨트</option>
+                  <option value="night-06">Night Run Cap — 나이트 런 캡</option>
+                </optgroup>
+                <option value="multi">여러 제품 (내용에 적어주세요)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field field--half">
+            <label class="field-label" for="f-qty">수량</label>
+            <input class="input" id="f-qty" name="qty" type="number" inputmode="numeric" min="1" max="9999" step="1" value="1" aria-describedby="f-qty-hint f-qty-err">
+            <p class="field-hint" id="f-qty-hint">수량은 1개부터 입력할 수 있어요.</p>
+            <p class="err" id="f-qty-err" hidden></p>
+          </div>
+          <div class="field field--half">
+            <label class="field-label" for="f-date">희망 일정</label>
+            <input class="input" id="f-date" name="date" type="date" aria-describedby="f-date-hint f-date-err">
+            <p class="field-hint" id="f-date-hint">수령·행사 날짜가 있다면 골라주세요.</p>
+            <p class="err" id="f-date-err" hidden></p>
+          </div>
+
+          <div class="field">
+            <div class="field-row">
+              <label class="field-label" for="f-msg">내용</label>
+              <span class="count" id="f-msg-count" aria-hidden="true">0 / 1000</span>
+            </div>
+            <textarea class="input" id="f-msg" name="message" rows="5" maxlength="1000" placeholder="사이즈, 로고 인쇄 여부, 매장 정보, 배송 지역 등을 자유롭게 적어주세요."></textarea>
+          </div>
+
+          <div class="field">
+            <label class="check" for="f-agree">
+              <input type="checkbox" id="f-agree" name="agree" required aria-describedby="f-agree-detail f-agree-err">
+              <span>개인정보 수집·이용에 동의해요 <span aria-hidden="true">(필수)</span></span>
+            </label>
+            <p class="consent-detail" id="f-agree-detail">수집 항목: 이름, 연락처 · 목적: 주문·문의 응대 · 보유 기간: 문의 처리 후 1년</p>
+            <p class="err" id="f-agree-err" hidden></p>
+          </div>
+
+          <div class="form-submit">
+            <button class="btn btn--accent btn--lg" type="submit">문의 내용 정리하기 <span class="arrow arrow--r" aria-hidden="true">→</span></button>
+            <p class="form-note" id="form-note">제출해도 바로 전송되지 않아요. 정리된 요약을 확인한 뒤 이메일·카카오톡·스마트스토어 중 하나를 골라 보내면 돼요.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="finish" aria-hidden="true"></div>
+  <div class="container">
+    <div class="footer-top">
+      <p class="label"><span aria-hidden="true">■</span> Finish · 42.195 km</p>
+      <p class="footer-thanks">끝까지 함께 달려줘서 고마워요.</p>
+    </div>
+    <p class="footer-slogan" lang="en">Run <em>with</em> you.</p>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="러너스위드 홈">
+          <svg class="logo-mark" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#rw-mark"/></svg>
+          <span class="logo-word" aria-hidden="true">Runners<em>with</em></span>
+        </a>
+        <p>당신과 함께 달리는 일상을 위한 기어.<br>러닝화 · 러닝 의류 · 러닝 장비</p>
+      </div>
+
+      <nav class="footer-col" aria-label="푸터 메뉴">
+        <p class="label">Menu</p>
+        <ul>
+          <li><a href="#collection">제품</a></li>
+          <li><a href="#story">브랜드 이야기</a></li>
+          <li><a href="#buy">구매 방법</a></li>
+          <li><a href="#faq">자주 묻는 질문</a></li>
+          <li><a href="#order">주문·문의</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="label">Follow</p>
+        <ul>
+          <li><a href="#top" data-link="instagram">Instagram <span class="arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#top" data-link="youtube">YouTube <span class="arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#top" data-link="strava">Strava Club <span class="arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#top" data-link="kakao">카카오톡 채널 <span class="arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="#top" data-link="blog">네이버 블로그 <span class="arrow" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-biz">
+        <p class="label">Business info</p>
+        <!-- [교체] 사업자 정보 (전자상거래법 표시 항목) -->
+        <dl class="biz">
+          <div><dt>상호</dt><dd>[상호명]</dd></div>
+          <div><dt>대표</dt><dd>[대표자명]</dd></div>
+          <div><dt>사업자등록번호</dt><dd>[000-00-00000]<a href="#top" data-link="bizCheck">사업자정보 확인</a></dd></div>
+          <div><dt>통신판매업 신고</dt><dd>[제0000-서울○○-0000호]</dd></div>
+          <div><dt>주소</dt><dd>[사업장 주소]</dd></div>
+          <div><dt>고객센터</dt><dd>[000-0000-0000] · 평일 10:00–17:00</dd></div>
+          <div><dt>이메일</dt><dd><span data-text="email">hello@example.com</span></dd></div>
+          <div><dt>개인정보보호책임자</dt><dd>[담당자명]</dd></div>
+          <div><dt>호스팅 제공자</dt><dd>[호스팅 업체명]</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> 러너스위드 Runners With. All rights reserved.</p>
+      <ul>
+        <li><a href="#top" data-link="terms">이용약관</a></li>
+        <li><a href="#top" data-link="privacy"><strong>개인정보처리방침</strong></a></li>
+        <li><a href="#top">맨 위로 <span class="arrow" aria-hidden="true">↑</span></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- 제품 상세: 사진 갤러리 + 3D 뷰어 -->
+<dialog class="pdp" id="pdp" aria-labelledby="pdp-name">
+  <button class="icon-btn pdp-close" type="button" data-close aria-label="상세 닫기"><span aria-hidden="true">×</span></button>
+  <div class="pdp-inner">
+    <div class="pdp-media">
+      <div class="pdp-tabs" role="tablist" aria-label="보기 방식">
+        <button type="button" role="tab" id="pdp-tab-photo" aria-controls="pdp-photo" aria-selected="true">사진</button>
+        <button type="button" role="tab" id="pdp-tab-3d" aria-controls="pdp-3d" aria-selected="false" tabindex="-1"><span class="dot" aria-hidden="true"></span>3D 보기</button>
+      </div>
+      <div class="pdp-stage">
+        <div class="pdp-photo" id="pdp-photo" role="tabpanel" aria-labelledby="pdp-tab-photo">
+          <img id="pdp-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="960" height="1440">
+          <button class="pdp-nav pdp-prev" type="button" aria-label="이전 사진"><span aria-hidden="true">←</span></button>
+          <button class="pdp-nav pdp-next" type="button" aria-label="다음 사진"><span aria-hidden="true">→</span></button>
+          <p class="pdp-count label" aria-live="polite"><span id="pdp-idx">1</span> / <span id="pdp-total">4</span></p>
+        </div>
+        <div class="pdp-3d" id="pdp-3d" role="tabpanel" aria-labelledby="pdp-tab-3d" hidden>
+          <div class="viewer" id="viewer" tabindex="0" role="application" aria-roledescription="3D 뷰어" aria-label="3D 모델" aria-describedby="viewer-help-sr"></div>
+          <div class="viewer-status" id="viewer-status" role="status">
+            <svg class="logo-mark" viewBox="0 0 48 32" aria-hidden="true"><use href="#rw-mark"/></svg>
+            <span id="viewer-status-text">3D 모델을 준비하고 있어요…</span>
+          </div>
+          <p class="viewer-help" aria-hidden="true">드래그해서 360° 돌리고, 휠이나 두 손가락으로 확대해요</p>
+          <p class="sr-only" id="viewer-help-sr">화살표 왼쪽·오른쪽 키로 회전하고, 플러스·마이너스 키로 확대하거나 축소해요.</p>
+          <div class="viewer-tools">
+            <button type="button" id="viewer-spin" aria-pressed="true">자동 회전</button>
+            <button type="button" id="viewer-reset">시점 초기화</button>
+          </div>
+        </div>
+      </div>
+      <div class="pdp-thumbs" id="pdp-thumbs" role="group" aria-label="사진 선택"></div>
+    </div>
+
+    <div class="pdp-info">
+      <p class="pdp-meta label" id="pdp-meta"></p>
+      <h2 class="pdp-name" id="pdp-name" lang="en"></h2>
+      <p class="pdp-kr" id="pdp-kr"></p>
+      <p class="pdp-price" id="pdp-price"></p>
+      <p class="pdp-desc" id="pdp-desc"></p>
+      <ul class="pdp-features" id="pdp-features" role="list"></ul>
+      <dl class="pdp-specs" id="pdp-specs"></dl>
+      <div class="pdp-cta">
+        <a class="btn btn--accent btn--lg" id="pdp-buy" href="#order" target="_blank" rel="noopener noreferrer">스마트스토어에서 구매 <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(새 창)</span></a>
+        <a class="btn btn--line btn--lg" id="pdp-group" href="#order">단체 문의</a>
+      </div>
+      <p class="pdp-note">사이즈가 고민되면 카카오톡으로 물어봐 주세요. <a href="#order" data-link="kakao">사이즈 상담하기 ↗</a></p>
+    </div>
+  </div>
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</dialog>
+
+<!-- 주문 요약 다이얼로그 -->
+<dialog class="summary" id="summary" aria-labelledby="summary-title">
+  <div class="summary-inner">
+    <div class="summary-head">
+      <div>
+        <p class="label">Order summary</p>
+        <h2 id="summary-title">이렇게 정리했어요</h2>
+      </div>
+      <button class="icon-btn" type="button" data-close aria-label="요약 닫기"><span aria-hidden="true">×</span></button>
+    </div>
+    <dl class="summary-list" id="summary-list"></dl>
+    <p class="summary-q">어디로 보낼까요?<span>아직 전송 전이에요</span></p>
+    <div class="sends">
+      <a class="send" id="send-email" href="#">
+        <span class="send-name">이메일 <span class="send-badge">추천</span></span>
+        <span class="send-desc">메일 앱에 요약이 자동으로 채워져요</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="send" id="send-kakao" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="send-name">카카오톡 채널 <span class="send-badge">추천</span></span>
+        <span class="send-desc">요약을 복사하고 채팅창을 열어요 · 붙여넣기만 하면 돼요</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="send" id="send-store" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="send-name">네이버 스마트스토어 <span class="send-badge">추천</span></span>
+        <span class="send-desc">개인 구매는 바로 결제할 수 있어요</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <div class="summary-foot">
+      <button class="btn btn--line btn--sm" type="button" id="copy-summary">요약 복사</button>
+      <button class="btn btn--text btn--sm" type="button" data-close>내용 수정하기</button>
+    </div>
+  </div>
+  <div class="toast" id="toast-dlg" role="status" aria-live="polite" aria-atomic="true"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  /* =========================================================
+     CONFIG — 판매 채널 URL·연락처는 여기서만 바꾸면 돼요
+     (data-link="키" 가 붙은 모든 링크에 자동 연결돼요)
+     ========================================================= */
+  const CONFIG = {
+    brand: '러너스위드',
+    email: 'hello@example.com',                                   // 문의 받을 이메일
+    links: {
+      store:     'https://smartstore.naver.com/your-store',         // 네이버 스마트스토어 홈
+      kakao:     'https://pf.kakao.com/_yourChannel',               // 카카오톡 채널 홈
+      kakaoChat: 'https://pf.kakao.com/_yourChannel/chat',          // 카카오톡 채널 1:1 채팅
+      instagram: 'https://www.instagram.com/your_account',
+      youtube:   'https://www.youtube.com/@your_channel',
+      strava:    'https://www.strava.com/clubs/your_club',
+      blog:      'https://blog.naver.com/your_blog',
+      bizCheck:  'https://www.ftc.go.kr/bizCommPop.do?wrkr_no=0000000000', // 사업자정보 확인 (번호 10자리)
+      terms:     '',   // 이용약관 페이지 URL
+      privacy:   '',   // 개인정보처리방침 페이지 URL
+      en:        ''    // 영문 페이지 URL (비워두면 '준비 중' 안내)
+    },
+    // 제품별 판매 페이지 — 비워두면 스마트스토어 홈으로 연결돼요
+    products: {
+      'daily-01':  'https://smartstore.naver.com/your-store/products/0000000001',
+      'tempo-02':  'https://smartstore.naver.com/your-store/products/0000000002',
+      'breeze-03': 'https://smartstore.naver.com/your-store/products/0000000003',
+      'lane-04':   'https://smartstore.naver.com/your-store/products/0000000004',
+      'pace-05':   'https://smartstore.naver.com/your-store/products/0000000005',
+      'night-06':  'https://smartstore.naver.com/your-store/products/0000000006'
+    }
+  };
+
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const debounce = (fn, ms = 150) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+
+  /* ---------- 스크롤 등장 (가장 먼저: 실패해도 콘텐츠는 보이게) ---------- */
+  const revealEls = $$('[data-reveal]');
+  if ('IntersectionObserver' in window && !reduceMotion.matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-in'));
+  }
+
+  /* ---------- 링크 연결 ---------- */
+  const resolveLink = (key) => {
+    if (key === 'email') return `mailto:${CONFIG.email}`;
+    if (key.startsWith('product:')) return CONFIG.products[key.slice(8)] || CONFIG.links.store;
+    return CONFIG.links[key] || '';
+  };
+  const isExternal = (url) => /^https?:\/\//.test(url);
+  $$('[data-link]').forEach((a) => {
+    const url = resolveLink(a.dataset.link);
+    if (!url) return;
+    a.href = url;
+    if (isExternal(url)) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+  });
+  $$('[data-text="email"]').forEach((el) => { el.textContent = CONFIG.email; });
+  $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+  /* ---------- 토스트 ---------- */
+  const summary = $('#summary');
+  let toastTimer;
+  const toast = (msg) => {
+    const openDialog = document.querySelector('dialog[open]');
+    const el = (openDialog && $('.toast', openDialog)) || $('#toast');
+    el.textContent = msg;
+    el.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('is-show'), 3200);
+  };
+
+  /* ---------- 모바일 메뉴 ---------- */
+  const menuBtn = $('.menu-btn');
+  const mnav = $('#mnav');
+  const setMenu = (open) => {
+    menuBtn.setAttribute('aria-expanded', String(open));
+    $('.menu-btn__label', menuBtn).textContent = open ? '메뉴 닫기' : '메뉴 열기';
+    root.classList.toggle('menu-open', open);
+    mnav.hidden = !open;
+    [$('main'), $('.site-footer')].forEach((el) => { el.inert = open; });
+    if (open) requestAnimationFrame(() => { mnav.classList.add('is-open'); $('a', mnav).focus(); });
+    else mnav.classList.remove('is-open');
+  };
+  menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  mnav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); menuBtn.focus(); }
+  });
+  matchMedia('(min-width: 960px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+
+  /* ---------- KR / EN 토글 자리 ---------- */
+  $$('[data-lang]').forEach((btn) => btn.addEventListener('click', () => {
+    if (btn.dataset.lang !== 'en') return;
+    if (CONFIG.links.en) { location.href = CONFIG.links.en; return; }
+    toast('English version is coming soon — 영문 페이지는 준비 중이에요.');
+  }));
+
+  /* ---------- 히어로 루프 영상 ----------
+     모션이 켜져 있고 화면에 보일 때만 재생해요. 데이터 절약 모드면 직접 재생을 누를 때까지 포스터만 보여요. */
+  const heroVideo = $('#hero-video');
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+  let heroVisible = true;
+  let userPlayed = false;
+  const syncVideo = () => {
+    if (!heroVideo) return;
+    const run = !root.classList.contains('motion-paused') && heroVisible && (!saveData || userPlayed);
+    if (run) heroVideo.play().catch(() => { /* 자동재생이 막히면 포스터 유지 */ });
+    else heroVideo.pause();
+  };
+  if (heroVideo && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { heroVisible = en.isIntersecting; syncVideo(); }).observe(heroVideo);
+  }
+
+  /* ---------- 모션 일시정지 ---------- */
+  const motionBtn = $('.motion-toggle');
+  const applyMotion = (paused) => {
+    root.classList.toggle('motion-paused', paused);
+    root.classList.toggle('motion-play', !paused);
+    motionBtn.dataset.state = paused ? 'paused' : 'playing';
+    $('.motion-toggle__text', motionBtn).textContent = paused ? '모션 재생' : '모션 일시정지';
+    syncVideo();
+  };
+  let savedMotion = null;
+  try { savedMotion = localStorage.getItem('rw-motion'); } catch (_) { /* 저장소 차단 시 무시 */ }
+  applyMotion(savedMotion ? savedMotion === 'paused' : reduceMotion.matches);
+  motionBtn.addEventListener('click', () => {
+    const paused = !root.classList.contains('motion-paused');
+    if (!paused) userPlayed = true;
+    applyMotion(paused);
+    try { localStorage.setItem('rw-motion', paused ? 'paused' : 'play'); } catch (_) { /* noop */ }
+  });
+
+  /* ---------- 시그니처: 42.195 페이스 레인 ----------
+     섹션마다 data-km 체크포인트를 두고, 스크롤 위치를 거리로 보간해요.
+     섹션에 도착하면 헤더 숫자가 그 섹션의 스플릿(10K, 21.1K…)과 맞아떨어져요. */
+  const FINISH = 42.195;
+  const paceFill = $('.pace__fill');
+  const paceTicks = $('.pace__ticks');
+  const kmOut = $$('[data-km-out]');
+  const kmBadges = $$('.km');
+  let points = [];
+  let ticking = false;
+
+  const kmAt = (y) => {
+    const last = points[points.length - 1];
+    if (y >= last.y - 2) return FINISH;
+    for (let i = 1; i < points.length; i++) {
+      const a = points[i - 1];
+      const b = points[i];
+      if (y <= b.y) return b.y === a.y ? b.km : a.km + (b.km - a.km) * ((y - a.y) / (b.y - a.y));
+    }
+    return FINISH;
+  };
+  const updatePace = () => {
+    ticking = false;
+    const km = kmAt(window.scrollY);
+    const done = km >= FINISH;
+    paceFill.style.setProperty('--p', (km / FINISH).toFixed(4));
+    kmOut.forEach((el) => { el.textContent = done ? '42.195' : km.toFixed(2); });
+    kmBadges.forEach((el) => el.classList.toggle('is-finish', done));
+  };
+  const measurePace = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const offset = window.innerHeight * 0.45;
+    points = [{ y: 0, km: 0 }];
+    $$('[data-km]').forEach((el) => {
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      points.push({ y: Math.min(max, Math.max(0, y)), km: parseFloat(el.dataset.km) });
+    });
+    points.push({ y: max, km: FINISH });
+    for (let i = 1; i < points.length; i++) points[i].y = Math.max(points[i].y, points[i - 1].y);
+    paceTicks.innerHTML = points.slice(1, -1)
+      .map((p) => `<i style="left:${(p.km / FINISH * 100).toFixed(2)}%"></i>`).join('');
+    updatePace();
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(updatePace); }
+  }, { passive: true });
+  window.addEventListener('resize', debounce(measurePace));
+  window.addEventListener('load', measurePace);
+  if ('ResizeObserver' in window) new ResizeObserver(debounce(measurePace, 200)).observe(document.body);
+  measurePace();
+
+  /* ---------- 내비 활성 표시 ---------- */
+  const navLinks = $$('.nav a');
+  if ('IntersectionObserver' in window) {
+    const navIO = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        navLinks.forEach((a) => a.classList.toggle('is-active', a.dataset.nav === en.target.dataset.nav));
+      });
+    }, { rootMargin: '-45% 0px -54% 0px' });
+    $$('section[data-nav]').forEach((s) => navIO.observe(s));
+  }
+
+  /* ---------- FAQ 아코디언 ---------- */
+  $$('.faq-item').forEach((item) => {
+    const btn = $('button', item);
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      item.classList.toggle('is-open', open);
+    });
+  });
+
+  /* ---------- 주문·문의 폼 ---------- */
+  const form = $('#order-form');
+  const f = {
+    name: $('#f-name'), contact: $('#f-contact'), product: $('#f-product'),
+    qty: $('#f-qty'), date: $('#f-date'), msg: $('#f-msg'), agree: $('#f-agree')
+  };
+  const TYPE_LABEL = { personal: '개인 구매', group: '단체 구매', wholesale: '협업·도매', etc: '기타 문의' };
+  const QTY_HINT = {
+    personal: '수량은 1개부터 입력할 수 있어요.',
+    group: '단체 할인은 같은 제품 10개부터 적용돼요.',
+    wholesale: '도매 사입은 30개부터 가능해요.',
+    etc: '수량은 1개부터 입력할 수 있어요.'
+  };
+  const RECOMMEND = { personal: 'store', group: 'kakao', wholesale: 'email', etc: 'kakao' };
+  const getType = () => (form.querySelector('input[name="type"]:checked') || {}).value || 'personal';
+  const productLabel = (id) => {
+    if (!id) return '';
+    const opt = [...f.product.options].find((o) => o.value === id);
+    return opt ? opt.textContent.trim() : '';
+  };
+
+  const pad = (n) => String(n).padStart(2, '0');
+  const now = new Date();
+  f.date.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+
+  const qtyHint = $('#f-qty-hint');
+  const syncType = () => { qtyHint.textContent = QTY_HINT[getType()]; };
+  form.addEventListener('change', (e) => { if (e.target.name === 'type') syncType(); });
+  syncType();
+
+  const msgCount = $('#f-msg-count');
+  f.msg.addEventListener('input', () => { msgCount.textContent = `${f.msg.value.length} / ${f.msg.maxLength}`; });
+
+  const PHONE = /^0\d{1,2}-?\d{3,4}-?\d{4}$/;
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const rules = [
+    [f.name, () => f.name.value.trim().length >= 2, '이름을 2자 이상 입력해 주세요.'],
+    [f.contact, () => {
+      const v = f.contact.value.trim();
+      return PHONE.test(v.replace(/\s/g, '')) || EMAIL.test(v);
+    }, '휴대폰 번호(010-0000-0000) 또는 이메일 주소를 입력해 주세요.'],
+    [f.qty, () => {
+      const v = f.qty.value;
+      return v === '' || (Number.isInteger(+v) && +v >= 1 && +v <= 9999);
+    }, '수량은 1부터 9999 사이 숫자로 입력해 주세요.'],
+    [f.date, () => !f.date.value || f.date.value >= f.date.min, '희망 일정은 오늘 이후 날짜로 골라주세요.'],
+    [f.agree, () => f.agree.checked, '개인정보 수집·이용에 동의해 주세요.']
+  ];
+  const setError = (el, msg) => {
+    const err = document.getElementById(`${el.id}-err`);
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    err.textContent = msg;
+    err.hidden = !msg;
+  };
+  const validate = () => rules
+    .filter(([el, test, msg]) => { const ok = test(); setError(el, ok ? '' : msg); return !ok; })
+    .map(([el]) => el);
+  rules.forEach(([el, test]) => {
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => {
+      if (el.getAttribute('aria-invalid') === 'true' && test()) setError(el, '');
+    });
+  });
+
+  const formatDate = (v) => {
+    if (!v) return '협의 가능';
+    const [y, m, d] = v.split('-');
+    return `${y}년 ${+m}월 ${+d}일`;
+  };
+  const summaryList = $('#summary-list');
+  const sendEmail = $('#send-email');
+  const sendKakao = $('#send-kakao');
+  const sendStore = $('#send-store');
+  let summaryText = '';
+
+  const openSummary = () => {
+    const type = getType();
+    const productId = f.product.value;
+    const rows = [
+      ['이름', f.name.value.trim()],
+      ['연락처', f.contact.value.trim()],
+      ['문의 유형', TYPE_LABEL[type]],
+      ['제품', productLabel(productId) || '선택 안 함'],
+      ['수량', f.qty.value ? `${f.qty.value}개` : '미정'],
+      ['희망 일정', formatDate(f.date.value)],
+      ['내용', f.msg.value.trim() || '-']
+    ];
+    summaryList.replaceChildren(...rows.map(([k, v]) => {
+      const row = document.createElement('div');
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+      dt.textContent = k;
+      dd.textContent = v;
+      row.append(dt, dd);
+      return row;
+    }));
+    summaryText = `[${CONFIG.brand} 주문·문의]\n${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}`;
+
+    const subject = `[${CONFIG.brand}] ${TYPE_LABEL[type]} 문의 — ${rows[0][1]}`;
+    sendEmail.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summaryText)}`;
+    sendKakao.href = CONFIG.links.kakaoChat || CONFIG.links.kakao;
+    sendStore.href = (type === 'personal' && CONFIG.products[productId]) || CONFIG.links.store;
+    [['email', sendEmail], ['kakao', sendKakao], ['store', sendStore]]
+      .forEach(([key, el]) => el.classList.toggle('is-recommended', RECOMMEND[type] === key));
+
+    summary.showModal();
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const invalid = validate();
+    if (invalid.length) {
+      invalid[0].focus();
+      toast(`입력 내용을 확인해 주세요 (${invalid.length}곳).`);
+      return;
+    }
+    openSummary();
+  });
+
+  const copyText = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (_) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.className = 'sr-only';
+      summary.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (__) { /* noop */ }
+      ta.remove();
+      return ok;
+    }
+  };
+  sendKakao.addEventListener('click', () => {
+    copyText(summaryText).then((ok) => toast(ok
+      ? '요약을 복사했어요. 카카오톡 채팅창에 붙여넣어 주세요.'
+      : '복사가 안 됐어요. ‘요약 복사’를 다시 눌러주세요.'));
+  });
+  sendEmail.addEventListener('click', () => toast('메일 앱을 열고 있어요. 내용 확인 후 보내기를 눌러주세요.'));
+  $('#copy-summary').addEventListener('click', async () => {
+    toast((await copyText(summaryText)) ? '요약을 클립보드에 복사했어요.' : '복사가 안 됐어요. 직접 선택해서 복사해 주세요.');
+  });
+  $$('[data-close]', summary).forEach((b) => b.addEventListener('click', () => summary.close()));
+  summary.addEventListener('click', (e) => { if (e.target === summary) summary.close(); });
+
+  /* ---------- 카드·버튼에서 폼 미리 채우기 ---------- */
+  $$('[data-prefill-type], [data-prefill-product]').forEach((a) => a.addEventListener('click', () => {
+    const { prefillType: type, prefillProduct: pid } = a.dataset;
+    if (type) {
+      const radio = form.querySelector(`input[name="type"][value="${type}"]`);
+      if (radio) { radio.checked = true; syncType(); }
+    }
+    if (pid) f.product.value = pid;
+    const what = pid ? productLabel(pid).split(' — ')[0] : TYPE_LABEL[type];
+    toast(`‘${what}’ 문의로 폼을 채워뒀어요.`);
+  }));
+
+  /* ---------- 제품 상세: 사진 갤러리 + 3D 뷰어 ----------
+     이름·가격·설명은 제품 카드에서 읽고, 상세 사진·특징·스펙은 아래 데이터에서 가져와요. */
+  const IMG = (name) => `assets/images/${name}.webp`;
+  const PRODUCTS = {
+    'daily-01': {
+      img: 'p01',
+      details: [
+        ['p01-d1', '니트 조직과 패딩 칼라, 트랙 레드 힐 루프가 보이는 데일리 러닝화 뒤꿈치 접사'],
+        ['p01-d2', '해 뜨는 강변에서 러너가 데일리 러닝화의 끈을 묶는 손과 발 클로즈업'],
+        ['p01-d3', '오트밀 배경 위에서 내려다본 데일리 러닝화 한 켤레, 끈과 넉넉한 앞코가 보이는 컷']
+      ],
+      features: ['니트 어퍼가 발등을 부드럽게 감싸 쓸림이 적어요', '두툼한 크림 폼 미드솔로 매일 5~10km도 편안해요', '완만한 로커 형상이 다음 걸음을 자연스럽게 이어줘요', '힐 루프 덕분에 신고 벗기 쉬워요'],
+      specs: [['무게', '268g (270mm 기준)'], ['드롭', '8mm · 힐 36mm / 앞 28mm'], ['사이즈', '230–300mm · 5mm 단위'], ['갑피', '엔지니어드 니트'], ['추천', '데일리 조깅 · 회복 러닝']]
+    },
+    'tempo-02': {
+      img: 'p02',
+      details: [
+        ['p02-d1', '반투명 검정 메시 앞코와 흰 미드솔, 트랙 레드 앞창 러버가 보이는 템포 러닝화 접사'],
+        ['p02-d2', '해 뜨는 육상 트랙 레인에서 템포 러닝화를 신고 힘차게 박차는 러너의 다리'],
+        ['p02-d3', '오트밀 배경 위 템포 러닝화 측면, 앞꿈치 로커 형태의 높은 흰색 미드솔']
+      ],
+      features: ['반투명 엔지니어드 메시로 가볍고 통기성이 좋아요', '높은 반발 폼과 나일론 플레이트가 탄력 있게 밀어줘요', '앞꿈치 로커가 빠른 페이스 전환을 도와요', '앞창 트랙 레드 러버가 노면을 단단히 잡아줘요'],
+      specs: [['무게', '224g (270mm 기준)'], ['드롭', '6mm · 힐 38mm / 앞 32mm'], ['사이즈', '230–300mm · 5mm 단위'], ['플레이트', '나일론 (카본 없음)'], ['추천', '템포런 · 인터벌 · 하프']]
+    },
+    'breeze-03': {
+      img: 'p03',
+      details: [
+        ['p03-d1', '미세 타공 메시 원단과 본딩 밑단, 흐릿한 트랙 레드 가슴 점이 보이는 싱글렛 접사'],
+        ['p03-d2', '아침 강변을 달리는 러너가 오프화이트 메시 싱글렛을 입은 뒷모습'],
+        ['p03-d3', '오트밀 배경 위에 접어 둔 오프화이트 싱글렛과 차콜 타월']
+      ],
+      features: ['미세 타공 메시라 땀이 빠르게 말라요', '봉제선 없는 본딩 밑단으로 쓸림이 적어요', '넓은 암홀로 팔 스윙이 자유로워요', '92g 초경량, 한여름 장거리에 좋아요'],
+      specs: [['무게', '92g (M 기준)'], ['소재', '재생 폴리에스터 메시'], ['사이즈', 'XS–2XL · 남녀공용'], ['핏', '레귤러'], ['관리', '찬물 단독 손세탁']]
+    },
+    'lane-04': {
+      img: 'p04',
+      details: [
+        ['p04-d1', '에너지 젤이 꽂힌 뒤 지퍼 포켓과 트랙 레드 밑단 파이핑이 보이는 차콜 쇼츠 접사'],
+        ['p04-d2', '아침 거리를 달리는 러너의 허리부터 무릎까지, 사이드 트임이 있는 차콜 러닝 쇼츠 착용 컷'],
+        ['p04-d3', '나무 옷걸이에 걸린 차콜 러닝 쇼츠 정면, 허리 밴드와 드로코드, 트랙 레드 파이핑']
+      ],
+      features: ['5인치 인심과 사이드 트임으로 보폭이 자유로워요', '뒤 지퍼 포켓에 젤 두 개와 휴대폰이 들어가요', '이너 브리프 일체형이라 따로 챙길 게 없어요', '밑단 트랙 레드 파이핑이 포인트예요'],
+      specs: [['인심', '5인치 (13cm)'], ['포켓', '뒤 지퍼 1 · 사이드 2'], ['사이즈', 'S–XL'], ['소재', '경량 우븐 · 이너 메시'], ['무게', '118g (M 기준)']]
+    },
+    'pace-05': {
+      img: 'p05',
+      details: [
+        ['p05-d1', '검정 러닝벨트의 트랙 레드 지퍼 손잡이와 은색 반사 스트립 접사'],
+        ['p05-d2', '새벽 거리를 달리는 러너의 허리에 밀착된 검정 슬림 러닝벨트 착용 컷'],
+        ['p05-d3', '오트밀 배경 위에 고리 모양으로 세운 검정 러닝벨트, 휴대폰이 든 포켓과 반사 스트립']
+      ],
+      features: ['몸에 밀착되는 신축 니트라 뛰어도 출렁이지 않아요', '6.7인치 휴대폰·열쇠·카드까지 수납해요', '반사 스트립으로 밤에도 잘 보여요', '한 손으로 여닫는 슬림 버클이에요'],
+      specs: [['수납', '6.7인치 휴대폰까지'], ['높이', '8cm'], ['허리', '60–110cm 조절'], ['소재', '신축 니트 · 반사 테이프'], ['무게', '64g']]
+    },
+    'night-06': {
+      img: 'p06',
+      details: [
+        ['p06-d1', '검정 러닝 캡의 레이저 타공 패널과 챙 테두리 은색 반사 파이핑 접사'],
+        ['p06-d2', '가로등이 켜진 밤거리를 달리는 러너의 뒷모습, 검정 러닝 캡의 반사 파이핑이 빛나는 컷'],
+        ['p06-d3', '오트밀 배경 위 검정 러닝 캡 측면, 짧은 소프트 챙과 타공 패널, 뒤쪽 트랙 레드 조절 탭']
+      ],
+      features: ['레이저 타공 패널로 열이 빠르게 빠져요', '챙 테두리 반사 파이핑이 밤에도 잘 보여요', '접이식 소프트 챙이라 주머니에 쏙 들어가요', '뒤 조절 탭으로 사이즈를 맞춰요'],
+      specs: [['무게', '48g'], ['사이즈', '프리 (54–60cm)'], ['소재', '경량 폴리에스터'], ['챙', '접이식 소프트'], ['관리', '찬물 손세탁']]
+    }
+  };
+
+  const pdp = $('#pdp');
+  const pdpImg = $('#pdp-img');
+  const pdpThumbs = $('#pdp-thumbs');
+  const tabPhoto = $('#pdp-tab-photo');
+  const tab3d = $('#pdp-tab-3d');
+  const panelPhoto = $('#pdp-photo');
+  const panel3d = $('#pdp-3d');
+  const viewer = $('#viewer');
+  const viewerStatus = $('#viewer-status');
+  const viewerStatusText = $('#viewer-status-text');
+  const spinBtn = $('#viewer-spin');
+  let view = { id: null, photos: [], idx: 0, mode: 'photo' };
+
+  const motionAllowed = () => !root.classList.contains('motion-paused')
+    && !(reduceMotion.matches && !root.classList.contains('motion-play'));
+  const cardInfo = (id) => {
+    const card = $(`.product [data-open-product="${id}"]`).closest('.product');
+    return {
+      meta: $$('.product-meta span', card).map((s) => s.textContent.trim()).join(' — '),
+      name: $('.product-name', card).textContent.trim(),
+      kr: $('.product-kr', card).textContent.trim(),
+      price: $('.product-price data', card).textContent.trim(),
+      desc: $('.product-desc', card).textContent.trim(),
+      alt: $('.product-media img', card).alt
+    };
+  };
+  const el = (tag, text, cls) => {
+    const node = document.createElement(tag);
+    if (text != null) node.textContent = text;
+    if (cls) node.className = cls;
+    return node;
+  };
+
+  const syncThumbs = () => {
+    $$('button', pdpThumbs).forEach((b) => {
+      const on = view.mode === '3d' ? b.classList.contains('pdp-thumb-3d') : +b.dataset.photo === view.idx;
+      b.setAttribute('aria-current', String(on));
+    });
+  };
+  const showPhoto = (i) => {
+    const n = view.photos.length;
+    view.idx = (i + n) % n;
+    const [name, alt] = view.photos[view.idx];
+    pdpImg.src = IMG(name);
+    pdpImg.alt = alt;
+    pdpImg.classList.remove('is-swap');
+    void pdpImg.offsetWidth;
+    pdpImg.classList.add('is-swap');
+    $('#pdp-idx').textContent = view.idx + 1;
+    syncThumbs();
+  };
+
+  const start3d = async () => {
+    const { id } = view;
+    viewer.setAttribute('aria-label', `${cardInfo(id).name} 3D 모델`);
+    viewerStatus.hidden = false;
+    viewerStatusText.textContent = '3D 모델을 준비하고 있어요…';
+    if (!window.RW3D) { viewerStatusText.textContent = '3D 뷰어를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.'; return; }
+    try {
+      await window.RW3D.show(viewer, id, { spin: spinBtn.getAttribute('aria-pressed') === 'true' });
+      if (view.id === id && view.mode === '3d') viewerStatus.hidden = true;
+    } catch (err) {
+      viewerStatusText.textContent = err && err.message === 'webgl'
+        ? '이 기기에서는 3D 보기를 지원하지 않아요. 사진으로 확인해 주세요.'
+        : '3D 뷰어를 불러오지 못했어요. 인터넷 연결을 확인해 주세요.';
+    }
+  };
+  const setMode = (mode, focusTab = false) => {
+    view.mode = mode;
+    const is3d = mode === '3d';
+    tabPhoto.setAttribute('aria-selected', String(!is3d));
+    tab3d.setAttribute('aria-selected', String(is3d));
+    tabPhoto.tabIndex = is3d ? -1 : 0;
+    tab3d.tabIndex = is3d ? 0 : -1;
+    panelPhoto.hidden = is3d;
+    panel3d.hidden = !is3d;
+    syncThumbs();
+    if (focusTab) (is3d ? tab3d : tabPhoto).focus();
+    if (is3d) start3d();
+    else if (window.RW3D) window.RW3D.stop();
+  };
+
+  const openPdp = (id) => {
+    const data = PRODUCTS[id];
+    if (!data) return;
+    const info = cardInfo(id);
+    view = { id, photos: [[`${data.img}-main`, info.alt], ...data.details], idx: 0, mode: 'photo' };
+
+    $('#pdp-meta').textContent = info.meta;
+    $('#pdp-name').textContent = info.name;
+    $('#pdp-kr').textContent = info.kr;
+    $('#pdp-price').replaceChildren(info.price, el('span', '원'));
+    $('#pdp-desc').textContent = info.desc;
+    $('#pdp-features').replaceChildren(...data.features.map((t) => el('li', t)));
+    $('#pdp-specs').replaceChildren(...data.specs.map(([k, v]) => {
+      const row = el('div');
+      row.append(el('dt', k), el('dd', v));
+      return row;
+    }));
+    $('#pdp-buy').href = CONFIG.products[id] || CONFIG.links.store;
+    $('#pdp-total').textContent = view.photos.length;
+
+    const thumbs = view.photos.map(([name, alt], i) => {
+      const b = el('button');
+      b.type = 'button';
+      b.dataset.photo = i;
+      b.setAttribute('aria-label', `사진 ${i + 1}: ${alt}`);
+      const im = el('img');
+      im.src = IMG(name);
+      im.alt = '';
+      im.loading = 'lazy';
+      b.append(im);
+      b.addEventListener('click', () => { if (view.mode !== 'photo') setMode('photo'); showPhoto(i); });
+      return b;
+    });
+    const t3d = el('button', '3D', 'pdp-thumb-3d');
+    t3d.type = 'button';
+    t3d.setAttribute('aria-label', '3D로 돌려보기');
+    t3d.append(el('span', '360°'));
+    t3d.addEventListener('click', () => setMode('3d'));
+    pdpThumbs.replaceChildren(...thumbs, t3d);
+
+    spinBtn.setAttribute('aria-pressed', String(motionAllowed()));
+    setMode('photo');
+    showPhoto(0);
+    if (!pdp.open) pdp.showModal();
+    $('.pdp-inner', pdp).scrollTop = 0;
+    $('.pdp-info', pdp).scrollTop = 0;
+    try { history.replaceState(null, '', `#product-${id}`); } catch (_) { /* noop */ }
+  };
+
+  $$('[data-open-product]').forEach((b) => b.addEventListener('click', () => openPdp(b.dataset.openProduct)));
+  tabPhoto.addEventListener('click', () => setMode('photo'));
+  tab3d.addEventListener('click', () => setMode('3d'));
+  $('.pdp-prev', pdp).addEventListener('click', () => showPhoto(view.idx - 1));
+  $('.pdp-next', pdp).addEventListener('click', () => showPhoto(view.idx + 1));
+  const cleanupPdp = () => {
+    if (window.RW3D) window.RW3D.stop();
+    if (location.hash.startsWith('#product-')) {
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (_) { /* noop */ }
+    }
+  };
+  const closePdp = () => { pdp.close(); cleanupPdp(); };
+  $$('[data-close]', pdp).forEach((b) => b.addEventListener('click', closePdp));
+  pdp.addEventListener('click', (e) => { if (e.target === pdp) closePdp(); });
+  pdp.addEventListener('close', cleanupPdp);   // Esc로 닫을 때
+
+  // 사진: 좌우 스와이프 · 키보드 ← →
+  let swipeX = null;
+  panelPhoto.addEventListener('pointerdown', (e) => { swipeX = e.clientX; });
+  panelPhoto.addEventListener('pointerup', (e) => {
+    if (swipeX === null) return;
+    const dx = e.clientX - swipeX;
+    swipeX = null;
+    if (Math.abs(dx) > 40) showPhoto(view.idx + (dx < 0 ? 1 : -1));
+  });
+  pdp.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    if (e.target.closest('.pdp-tabs')) { e.preventDefault(); setMode(view.mode === '3d' ? 'photo' : '3d', true); return; }
+    if (view.mode === 'photo') { e.preventDefault(); showPhoto(view.idx + (e.key === 'ArrowRight' ? 1 : -1)); }
+  });
+
+  // 3D: 키보드 회전·확대, 자동 회전, 시점 초기화
+  viewer.addEventListener('keydown', (e) => {
+    const R = window.RW3D;
+    if (!R) return;
+    const keys = {
+      ArrowLeft: () => R.rotate(-0.26), ArrowRight: () => R.rotate(0.26),
+      '+': () => R.zoom(0.88), '=': () => R.zoom(0.88), '-': () => R.zoom(1.14), _: () => R.zoom(1.14), Home: () => R.reset()
+    };
+    if (!keys[e.key]) return;
+    e.preventDefault();
+    e.stopPropagation();
+    keys[e.key]();
+  });
+  spinBtn.addEventListener('click', () => {
+    const on = spinBtn.getAttribute('aria-pressed') !== 'true';
+    spinBtn.setAttribute('aria-pressed', String(on));
+    if (window.RW3D) window.RW3D.setSpin(on);
+  });
+  $('#viewer-reset').addEventListener('click', () => { if (window.RW3D) window.RW3D.reset(); });
+
+  $('#pdp-group').addEventListener('click', (e) => {
+    e.preventDefault();
+    const { id } = view;
+    closePdp();
+    const radio = form.querySelector('input[name="type"][value="group"]');
+    if (radio) { radio.checked = true; syncType(); }
+    f.product.value = id;
+    $('#order').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    toast(`‘${cardInfo(id).name}’ 단체 문의로 폼을 채워뒀어요.`);
+  });
+
+  // #product-daily-01 같은 링크로 들어오면 바로 상세를 열어요
+  const deep = location.hash.match(/^#product-([\w-]+)$/);
+  if (deep && PRODUCTS[deep[1]]) openPdp(deep[1]);
+})();
+</script>
+
+<script type="module">
+/* =========================================================
+   3D 뷰어 — Three.js로 제품 6종을 코드로 모델링해요 (외부 3D 파일 없음)
+   실제 3D 스캔(GLB) 파일이 생기면 MODELS의 build를 GLTFLoader로 바꾸면 돼요.
+   ========================================================= */
+let T = null;
+const loadThree = async () => {
+  if (T) return T;
+  const [three, controls, env, rounded] = await Promise.all([
+    import('three'),
+    import('three/addons/controls/OrbitControls.js'),
+    import('three/addons/environments/RoomEnvironment.js'),
+    import('three/addons/geometries/RoundedBoxGeometry.js')
+  ]);
+  T = { ...three, OrbitControls: controls.OrbitControls, RoomEnvironment: env.RoomEnvironment, RoundedBoxGeometry: rounded.RoundedBoxGeometry };
+  return T;
+};
+
+const ACCENT = '#E5502F';
+const TAU = Math.PI * 2;
+const clamp01 = (x) => Math.min(1, Math.max(0, x));
+const smooth = (a, b, x) => { const t = clamp01((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const se = (v, n) => Math.sign(v) * Math.abs(v) ** (2 / n);   // 슈퍼타원 단면
+
+/* ---------- 공통 도구 ---------- */
+const canvasTex = (w, h, draw, repeat = [1, 1]) => {
+  const c = document.createElement('canvas');
+  c.width = w; c.height = h;
+  draw(c.getContext('2d'), w, h);
+  const t = new T.CanvasTexture(c);
+  t.colorSpace = T.SRGBColorSpace;
+  t.wrapS = t.wrapT = T.RepeatWrapping;
+  t.repeat.set(repeat[0], repeat[1]);
+  t.anisotropy = 8;
+  return t;
+};
+const grain = (g, w, h, amount) => {
+  const img = g.getImageData(0, 0, w, h);
+  const d = img.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const n = (Math.random() - 0.5) * 255 * amount;
+    d[i] += n; d[i + 1] += n; d[i + 2] += n;
+  }
+  g.putImageData(img, 0, 0);
+};
+const drawMark = (g, x, y, s, stroke, sy = 1) => {
+  g.save();
+  g.translate(x, y); g.scale(s, s * sy); g.translate(-24, -16);
+  g.lineCap = 'round'; g.lineWidth = 3.4; g.strokeStyle = stroke;
+  g.stroke(new Path2D('M45 3H17a13 13 0 0 0 0 26h28'));
+  g.stroke(new Path2D('M45 9.6H17a6.4 6.4 0 0 0 0 12.8h28'));
+  g.fillStyle = ACCENT; g.beginPath(); g.arc(17, 16, 3, 0, TAU); g.fill();
+  g.restore();
+};
+// (t, u) 격자로 곡면을 만들어요. fn → [x, y, z, (uvX), (uvY)]
+const loft = (nT, nU, fn, { mask = null, weldU = false } = {}) => {
+  const row = nU + 1;
+  const pos = new Float32Array((nT + 1) * row * 3);
+  const uv = new Float32Array((nT + 1) * row * 2);
+  let k = 0; let q = 0;
+  for (let i = 0; i <= nT; i++) {
+    for (let j = 0; j <= nU; j++) {
+      const p = fn(i / nT, j / nU);
+      pos[k++] = p[0]; pos[k++] = p[1]; pos[k++] = p[2];
+      uv[q++] = p[3] ?? i / nT; uv[q++] = p[4] ?? j / nU;
+    }
+  }
+  const idx = [];
+  for (let i = 0; i < nT; i++) {
+    for (let j = 0; j < nU; j++) {
+      if (mask && mask((i + 0.5) / nT, (j + 0.5) / nU)) continue;
+      const a = i * row + j; const b = a + row;
+      idx.push(a, b, a + 1, b, b + 1, a + 1);
+    }
+  }
+  const geo = new T.BufferGeometry();
+  geo.setAttribute('position', new T.BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new T.BufferAttribute(uv, 2));
+  geo.setIndex(idx);
+  geo.computeVertexNormals();
+  if (weldU) {   // 닫힌 단면의 이음매 노멀을 맞춰 줄무늬를 없애요
+    const n = geo.attributes.normal;
+    for (let i = 0; i <= nT; i++) {
+      const a = i * row; const b = a + nU;
+      const x = n.getX(a) + n.getX(b); const y = n.getY(a) + n.getY(b); const z = n.getZ(a) + n.getZ(b);
+      const l = Math.hypot(x, y, z) || 1;
+      n.setXYZ(a, x / l, y / l, z / l); n.setXYZ(b, x / l, y / l, z / l);
+    }
+  }
+  return geo;
+};
+const mesh = (geo, mat) => { const m = new T.Mesh(geo, mat); m.castShadow = true; m.receiveShadow = true; return m; };
+const tube = (pts, r, mat, closed = false, seg = 48) => mesh(
+  new T.TubeGeometry(new T.CatmullRomCurve3(pts.map((p) => new T.Vector3(...p)), closed), seg, r, 10, closed), mat);
+const fabric = (o) => new T.MeshPhysicalMaterial({ roughness: 0.88, metalness: 0, sheen: 0.7, sheenRoughness: 0.7, sheenColor: '#ffffff', side: T.DoubleSide, ...o });
+const solid = (o) => new T.MeshStandardMaterial({ roughness: 0.6, metalness: 0, side: T.DoubleSide, ...o });
+const reflective = () => new T.MeshStandardMaterial({ color: '#e3e5e8', metalness: 0.9, roughness: 0.2, emissive: '#2e2e2e' });
+// 몸통 곡면에 붙도록 박스를 휘어요 (앞/뒤 곡률)
+const bendZ = (geo, k) => {
+  const p = geo.attributes.position;
+  for (let i = 0; i < p.count; i++) p.setZ(i, p.getZ(i) + k * p.getX(i) ** 2);
+  geo.computeVertexNormals();
+  return geo;
+};
+const blobTex = () => canvasTex(256, 256, (g, w, h) => {
+  const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2);
+  r.addColorStop(0, 'rgba(40,30,20,.55)'); r.addColorStop(0.55, 'rgba(40,30,20,.22)'); r.addColorStop(1, 'rgba(40,30,20,0)');
+  g.fillStyle = r; g.fillRect(0, 0, w, h);
+});
+
+/* ---------- 텍스처 ---------- */
+const upperTex = (o) => canvasTex(1024, 512, (g, w, h) => {
+  g.fillStyle = o.base; g.fillRect(0, 0, w, h);
+  g.fillStyle = o.rib;
+  if (o.mesh) {
+    for (let y = 3, r = 0; y < h; y += 6, r++) for (let x = (r % 2) * 4; x < w; x += 8) { g.beginPath(); g.ellipse(x, y, 2.3, 1.6, 0, 0, TAU); g.fill(); }
+  } else {
+    g.globalAlpha = 0.55;
+    for (let y = 0; y < h; y += 5) g.fillRect(0, y, w, 2);
+    g.globalAlpha = 1;
+  }
+  // 양쪽 측면의 두 줄 레인 라인
+  g.strokeStyle = o.line; g.lineWidth = 6; g.lineCap = 'round';
+  for (const [u0, u1] of [[0.86, 0.72], [0.905, 0.765]]) {
+    for (const flip of [false, true]) {
+      const a = flip ? 1 - u0 : u0; const b = flip ? 1 - u1 : u1;
+      g.beginPath(); g.moveTo(0.27 * w, (1 - a) * h); g.lineTo(0.63 * w, (1 - b) * h); g.stroke();
+    }
+  }
+  drawMark(g, 0.1 * w, 0.2 * h, 1.4, o.markStroke, 0.62);   // 바깥쪽 뒤꿈치 심볼
+  grain(g, w, h, 0.05);
+});
+const treadTex = (base, groove) => canvasTex(512, 256, (g, w, h) => {
+  g.fillStyle = base; g.fillRect(0, 0, w, h);
+  g.strokeStyle = groove; g.lineWidth = 3;
+  for (let x = -h; x < w; x += 14) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x + h * 0.4, h / 2); g.lineTo(x, h); g.stroke(); }
+  grain(g, w, h, 0.06);
+});
+const foamTex = (base) => canvasTex(512, 256, (g, w, h) => { g.fillStyle = base; g.fillRect(0, 0, w, h); grain(g, w, h, 0.035); });
+const perfTex = () => canvasTex(1024, 1024, (g, w, h) => {
+  g.fillStyle = '#EFEAE0'; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(110, 98, 84, .22)';
+  for (let y = 4, r = 0; y < h; y += 9, r++) for (let x = (r % 2) * 5; x < w; x += 10) { g.beginPath(); g.ellipse(x, y, 1.7, 2.7, 0, 0, TAU); g.fill(); }
+  g.fillStyle = 'rgba(22, 21, 19, .06)'; g.fillRect(0, h - 24, w, 24);       // 본딩 밑단
+  const u = (Math.PI / 2 - 0.36) / TAU;                                       // 왼쪽 가슴 트랙 레드 점
+  g.fillStyle = ACCENT; g.beginPath(); g.ellipse(u * w, 0.2 * h, 9, 15, 0, 0, TAU); g.fill();
+  grain(g, w, h, 0.03);
+});
+const wovenTex = (base) => canvasTex(512, 512, (g, w, h) => {
+  g.fillStyle = base; g.fillRect(0, 0, w, h);
+  g.strokeStyle = 'rgba(255,255,255,.035)'; g.lineWidth = 1;
+  for (let i = 0; i < w; i += 3) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, h); g.stroke(); }
+  for (let i = 0; i < h; i += 4) { g.beginPath(); g.moveTo(0, i); g.lineTo(w, i); g.stroke(); }
+  grain(g, w, h, 0.05);
+});
+const ribTex = (base) => canvasTex(512, 128, (g, w, h) => {
+  g.fillStyle = base; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(0,0,0,.35)';
+  for (let x = 0; x < w; x += 6) g.fillRect(x, 0, 2, h);
+  grain(g, w, h, 0.05);
+});
+const capTex = () => canvasTex(2048, 512, (g, w, h) => {
+  g.fillStyle = '#23211F'; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(0,0,0,.7)';                                              // 옆면 레이저 타공
+  for (const [a, b] of [[0.02, 0.15], [0.35, 0.48]]) {
+    for (let y = h * 0.34, r = 0; y < h * 0.9; y += 17, r++) {
+      for (let x = a * w + (r % 2) * 9; x < b * w; x += 18) { g.beginPath(); g.arc(x, y, 4.2, 0, TAU); g.fill(); }
+    }
+  }
+  g.strokeStyle = 'rgba(0,0,0,.6)'; g.lineWidth = 4;                           // 6패널 봉제선
+  for (let k = 1; k <= 6; k++) { const x = (k / 6) * w; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); }
+  drawMark(g, 0.25 * w, 0.6 * h, 2.4, '#d9dce0', 1.3);                         // 앞 패널 반사 심볼
+  g.fillStyle = 'rgba(0,0,0,.25)'; g.fillRect(0, h - 18, w, 18);
+  grain(g, w, h, 0.04);
+});
+
+/* ---------- 러닝화 ---------- */
+const DAILY = {
+  heel: 0.4, fore: 0.29, spring: 0.24, collar: 0.58, instep: 0.82, sheen: 0.35,
+  upper: { base: '#D3C4AA', rib: '#B9A688', line: '#EDE3D2', markStroke: '#A5937A' },
+  mid: '#E8DCC6', outsole: ['#CDBEA4', '#B3A285'], lace: '#EFE7DA'
+};
+const TEMPO = {
+  heel: 0.48, fore: 0.36, spring: 0.32, collar: 0.52, instep: 0.74, sheen: 0.12,
+  upper: { base: '#121110', rib: '#2E2C2A', line: '#77736D', markStroke: '#8A867F', mesh: true },
+  mid: '#F1EDE6', outsole: ['#151413', '#33312E'], outFore: ACCENT, lace: '#121110'
+};
+const buildShoe = (o) => {
+  const g = new T.Group();
+  const L = 3;
+  const X = (t) => (t - 0.5) * L;
+  const heelR = (t) => (t < 0.14 ? Math.sqrt(clamp01(1 - ((0.14 - t) / 0.14) ** 2)) : 1);
+  const toeR = (t) => (t > 0.84 ? Math.sqrt(clamp01(1 - ((t - 0.84) / 0.16) ** 2)) : 1);
+  const halfW = (t) => (0.35 + 0.13 * smooth(0.36, 0.74, t) - 0.035 * Math.exp(-(((t - 0.46) / 0.12) ** 2))) * heelR(t) * toeR(t);
+  const H = (t) => o.heel * (1 - t) + o.fore * t;
+  const lift = (t) => o.spring * smooth(0.66, 1, t) ** 2 + 0.06 * smooth(0.16, 0, t) ** 2;
+
+  // 미드솔
+  const mid = solid({ color: o.mid, map: foamTex('#ffffff'), roughness: 0.55 });
+  g.add(mesh(loft(140, 56, (t, u) => {
+    const a = halfW(t) * 1.07; const b = (H(t) / 2) * (0.86 + 0.14 * toeR(t)); const yc = lift(t) + b; const th = u * TAU;
+    return [X(t), yc + b * se(Math.sin(th), 3.6), a * se(Math.cos(th), 3.6)];
+  }, { weldU: true }), mid));
+
+  // 아웃솔
+  const outsole = (t0, t1, color) => mesh(loft(80, 40, (s, u) => {
+    const t = t0 + s * (t1 - t0); const a = halfW(t) * 1.05; const th = u * TAU;
+    return [X(t), lift(t) + 0.03 + 0.045 * se(Math.sin(th), 3), a * se(Math.cos(th), 3), s * 4, u];
+  }, { weldU: true }), solid({ map: treadTex(color, o.outsole[1]), roughness: 0.8 }));
+  if (o.outFore) { g.add(outsole(0, 0.46, o.outsole[0]), outsole(0.5, 1, o.outFore)); } else { g.add(outsole(0, 1, o.outsole[0])); }
+
+  // 갑피 (발목 구멍은 비워 둬요)
+  const UH = (t) => (o.collar + (o.instep - o.collar) * smooth(0.22, 0.52, t)) * (1 - 0.55 * smooth(0.6, 0.98, t)) * toeR(t);
+  const base = (t) => lift(t) + H(t) * 0.8;
+  const upperP = (t, u) => {
+    const th = Math.PI * (1 - u); const w = halfW(t) * 0.97;
+    return [X(t), base(t) + UH(t) * Math.abs(Math.sin(th)) ** (2 / 2.4), w * se(Math.cos(th), 2.4)];
+  };
+  const C = { t: 0.215, u: 0.5, rt: 0.165, ru: 0.235 };
+  const upperMat = fabric({ map: upperTex(o.upper), roughness: 0.92, sheen: o.sheen });
+  g.add(mesh(loft(150, 72, upperP, { mask: (t, u) => ((t - C.t) / C.rt) ** 2 + ((u - C.u) / C.ru) ** 2 < 1 }), upperMat));
+
+  // 패딩 칼라
+  const ring = [];
+  for (let k = 0; k < 72; k++) {
+    const a = (k / 72) * TAU; const p = upperP(C.t + C.rt * Math.cos(a), C.u + C.ru * Math.sin(a));
+    ring.push([p[0], p[1] + 0.004, p[2] * 1.01]);
+  }
+  g.add(tube(ring, 0.046, upperMat, true, 144));
+
+  // 텅
+  g.add(mesh(loft(20, 20, (s, v) => {
+    const p = upperP(0.335 + s * 0.12, 0.38 + v * 0.24);
+    return [p[0] - 0.02 * (1 - s), p[1] + 0.012 + 0.07 * (1 - s) ** 1.5, p[2] * 0.96];
+  }), upperMat));
+
+  // 끈
+  const laceMat = fabric({ color: o.lace, roughness: 0.8, sheen: o.sheen });
+  const eye = (t, u) => { const p = upperP(t, u); return [p[0], p[1] + 0.02, p[2] * 1.03]; };
+  for (let k = 0; k < 5; k++) {
+    const t0 = 0.42 + k * 0.055; const t1 = t0 + 0.05;
+    for (const [ua, ub] of [[0.37, 0.63], [0.63, 0.37]]) {
+      const A = eye(t0, ua); const B = eye(t1, ub);
+      g.add(tube([A, [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2 + 0.02, (A[2] + B[2]) / 2], B], 0.017, laceMat, false, 16));
+    }
+  }
+
+  // 트랙 레드 힐 루프
+  const top = upperP(0.012, 0.5);
+  const loop = mesh(new T.TorusGeometry(0.075, 0.022, 10, 24, Math.PI), solid({ color: ACCENT, roughness: 0.55 }));
+  loop.position.set(top[0] + 0.03, top[1] - 0.025, 0);
+  loop.rotation.z = 0.35;
+  g.add(loop);
+  return g;
+};
+
+/* ---------- 싱글렛 (고스트 마네킹) ---------- */
+const buildSinglet = () => {
+  const g = new T.Group();
+  const Ht = 1.9;
+  const rx = (h) => 0.64 - 0.05 * smooth(0, 0.35, h) + 0.06 * smooth(0.35, 0.7, h) - 0.11 * smooth(0.75, 1, h);
+  const rz = (h) => (0.33 - 0.02 * smooth(0, 0.35, h) + 0.05 * smooth(0.35, 0.68, h)) * (1 - 0.88 * smooth(0.8, 1, h));
+  const topH = (th) => {           // 각 세로줄의 윗선: 암홀·넥라인 모양
+    const c = Math.abs(Math.cos(th)); const front = Math.sin(th) > 0;
+    if (c > 0.6) return 1 - 0.46 * Math.sin(((c - 0.6) / 0.4) * Math.PI / 2) ** 0.8;
+    if (c < 0.36) return 1 - (front ? 0.22 : 0.08) * Math.sqrt(clamp01(1 - (c / 0.36) ** 2));
+    return 1;
+  };
+  const mat = fabric({ map: perfTex(), roughness: 0.93, sheen: 0.6 });
+  g.add(mesh(loft(90, 220, (s, v) => {
+    const th = v * TAU; const h = s * topH(th);
+    const wob = 1 + 0.012 * Math.sin(th * 7 + h * 10) * (1 - h);
+    return [rx(h) * Math.cos(th) * wob, h * Ht, rz(h) * Math.sin(th) * wob, v, h];
+  }, { weldU: true }), mat));
+  return g;
+};
+
+/* ---------- 쇼츠 ---------- */
+const buildShorts = () => {
+  const g = new T.Group();
+  const Ht = 1.0;
+  const fab = fabric({ map: wovenTex('#1D1C1A'), roughness: 0.8, sheen: 0.15 });
+  const JOIN = 0.5;                                   // 가랑이 높이: 위는 한 통, 아래는 두 다리
+  const hipRx = (h) => 0.7 - 0.07 * smooth(JOIN, 1, h);
+  const hipRz = (h) => 0.46 - 0.06 * smooth(JOIN, 1, h);
+  g.add(mesh(loft(40, 180, (s, v) => {
+    const h = JOIN + s * (0.92 - JOIN); const th = v * TAU;
+    return [hipRx(h) * Math.cos(th), h * Ht, hipRz(h) * Math.sin(th), v * 2, h * 1.5];
+  }, { weldU: true }), fab));
+  g.add(mesh(loft(8, 180, (s, v) => {           // 허리 밴드
+    const h = 0.9 + s * 0.1; const th = v * TAU; const k = 1.012;
+    return [hipRx(h) * k * Math.cos(th), h * Ht, hipRz(h) * k * Math.sin(th), v * 3, s];
+  }, { weldU: true }), fabric({ map: ribTex('#1B1A18'), roughness: 0.9, sheen: 0.1 })));
+
+  // 다리: 가랑이에서는 엉덩이 단면의 반쪽(D자)과 정확히 맞물리고, 밑단으로 갈수록 둥근 통이 돼요
+  const piping = solid({ color: ACCENT, roughness: 0.5 });
+  for (const side of [1, -1]) {
+    const ang = (v) => (v <= 0.75 ? -Math.PI / 2 + (v / 0.75) * Math.PI : Math.PI / 2 + ((v - 0.75) / 0.25) * Math.PI);
+    const hemH = (v) => 0.075 * clamp01((Math.cos(ang(v)) - 0.84) / 0.16) ** 0.7;   // 바깥쪽 옆 트임
+    const P = (v, h) => {
+      const b = ang(v); const m = smooth(JOIN, 0, h);
+      const top = v <= 0.75 ? [hipRx(JOIN) * Math.cos(b), hipRz(JOIN) * Math.sin(b)] : [0.004, hipRz(JOIN) * Math.sin(b)];
+      const flare = Math.max(0, Math.cos(b)) * 0.04 * m;
+      const hem = [0.37 + (0.34 + flare) * Math.cos(b), 0.44 * Math.sin(b)];
+      return [side * (top[0] + (hem[0] - top[0]) * m), h * Ht, top[1] + (hem[1] - top[1]) * m];
+    };
+    g.add(mesh(loft(36, 160, (s, v) => {
+      const h0 = hemH(v); const h = h0 + s * (JOIN - h0);
+      return [...P(v, h), v * 1.5, h * 1.5];
+    }, { weldU: true }), fab));
+    const ring = [];
+    for (let k = 0; k < 160; k++) {
+      const v = k / 160; const p = P(v, hemH(v)); const cx = side * 0.37;
+      ring.push([cx + (p[0] - cx) * 1.012, p[1] + 0.004, p[2] * 1.012]);
+    }
+    g.add(tube(ring, 0.011, piping, true, 320));
+  }
+
+  // 드로코드
+  const cord = solid({ color: '#3A3835', roughness: 0.7 });
+  const zf = hipRz(0.95) * 1.02;
+  for (const s of [1, -1]) g.add(tube([[s * 0.03, 0.95, zf], [s * 0.065, 0.86, zf + 0.03], [s * 0.05, 0.73, zf + 0.02]], 0.011, cord, false, 24));
+  // 뒤 지퍼 포켓
+  const zb = -hipRz(0.84) - 0.01;
+  const pocket = mesh(bendZ(new T.RoundedBoxGeometry(0.44, 0.12, 0.016, 3, 0.006), 0.5), fabric({ color: '#151413', roughness: 0.8, sheen: 0.1 }));
+  pocket.position.set(0, 0.84, zb); g.add(pocket);
+  const zip = mesh(bendZ(new T.BoxGeometry(0.4, 0.008, 0.01, 12, 1, 1), 0.5), solid({ color: '#0E0D0C' }));
+  zip.position.set(0, 0.875, zb - 0.01); g.add(zip);
+  const pull = mesh(new T.RoundedBoxGeometry(0.03, 0.06, 0.012, 2, 0.004), solid({ color: ACCENT }));
+  pull.position.set(0.19, 0.845, zb - 0.012 + 0.5 * 0.19 ** 2); g.add(pull);
+  return g;
+};
+
+/* ---------- 러닝벨트 ---------- */
+const buildBelt = () => {
+  const g = new T.Group();
+  const RX = 1.0; const RZ = 0.68; const Y = 0.3; const BW = 0.26;
+  g.add(mesh(loft(12, 240, (s, v) => {
+    const th = v * TAU;
+    return [RX * Math.cos(th), Y + (s - 0.5) * BW, RZ * Math.sin(th), v * 8, s];
+  }, { weldU: true }), fabric({ map: ribTex('#191817'), roughness: 0.85, sheen: 0.12 })));
+  g.add(mesh(loft(1, 240, (s, v) => {          // 반사 스트립
+    const th = v * TAU; const k = 1.004;
+    return [RX * k * Math.cos(th), Y - 0.035 + s * 0.022, RZ * k * Math.sin(th)];
+  }, { weldU: true }), reflective()));
+
+  // 앞 포켓: 벨트 곡률(앞쪽 곡률반경 RX²/RZ)에 맞춰 휘어요
+  const R = (RX * RX) / RZ; const zc = RZ + 0.065;
+  const wrap = (geo) => {
+    const p = geo.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const a = p.getX(i) / R; const rr = R + p.getZ(i);
+      p.setXYZ(i, rr * Math.sin(a), p.getY(i) + Y, rr * Math.cos(a) - R + zc);
+    }
+    geo.computeVertexNormals();
+    return geo;
+  };
+  g.add(mesh(wrap(new T.RoundedBoxGeometry(0.96, 0.32, 0.13, 6, 0.055)), fabric({ map: wovenTex('#151413'), roughness: 0.8, sheen: 0.12 })));
+  g.add(mesh(wrap(new T.BoxGeometry(0.88, 0.018, 0.006, 24, 1, 1).translate(0, -0.06, 0.066)), reflective()));
+  g.add(mesh(wrap(new T.BoxGeometry(0.84, 0.01, 0.008, 24, 1, 1).translate(0, 0.11, 0.066)), solid({ color: '#0E0D0C' })));
+  g.add(mesh(wrap(new T.BoxGeometry(0.035, 0.085, 0.014).translate(0.41, 0.06, 0.075)), solid({ color: ACCENT })));
+  // 뒤 버클
+  const buckle = mesh(new T.RoundedBoxGeometry(0.18, 0.2, 0.05, 3, 0.02), solid({ color: '#3A3835', roughness: 0.4 }));
+  buckle.position.set(0, Y, -RZ - 0.02); g.add(buckle);
+  return g;
+};
+
+/* ---------- 러닝 캡 ---------- */
+const buildCap = () => {
+  const g = new T.Group();
+  const r = 0.62; const sz = 1.1;
+  const fab = fabric({ map: capTex(), roughness: 0.86, sheen: 0.15 });
+  const crown = mesh(new T.SphereGeometry(r, 96, 40, 0, TAU, 0, Math.PI / 2), fab);
+  crown.scale.set(1, 0.86, sz); g.add(crown);
+  const button = mesh(new T.SphereGeometry(0.035, 16, 12), fab);
+  button.position.y = r * 0.86; g.add(button);
+
+  const P = (a, s) => {             // 짧은 소프트 챙: 앞쪽 ±1.2rad, 옆으로 갈수록 좁아지고 아래로 휘어요
+    const phi = (a - 0.5) * 2 * 1.2; const A = (a - 0.5) * 2;
+    const len = 0.4 * Math.max(0, Math.cos(phi * 1.18)) ** 1.1;
+    const d = s * len; const k = 0.985;
+    const y = 0.006 - 0.11 * s ** 1.5 - 0.1 * A * A * s ** 1.2;
+    return [r * k * Math.sin(phi) + Math.sin(phi) * d, y, r * sz * k * Math.cos(phi) + Math.cos(phi) * d];
+  };
+  g.add(mesh(loft(64, 20, (a, s) => P(a, s)), fabric({ color: '#161514', roughness: 0.85, sheen: 0.1 })));
+  const edge = [];
+  for (let k = 0; k <= 64; k++) edge.push(P(0.04 + (k / 64) * 0.92, 1));
+  g.add(tube(edge, 0.013, reflective(), false, 128));
+  const tab = mesh(new T.RoundedBoxGeometry(0.13, 0.06, 0.02, 2, 0.008), solid({ color: ACCENT }));
+  tab.position.set(0, 0.07, -r * sz - 0.004); g.add(tab);
+  return g;
+};
+
+// view: 처음 카메라 방향 · fit: 화면 채움 정도(클수록 멀리) · blob: 바닥 그림자 농도
+const MODELS = {
+  'daily-01': { view: [0.62, 0.36, 1], fit: 0.86, blob: 1, build: () => buildShoe(DAILY) },
+  'tempo-02': { view: [0.62, 0.36, 1], fit: 0.86, blob: 1, build: () => buildShoe(TEMPO) },
+  'breeze-03': { view: [0.32, 0.12, 1], fit: 1.02, blob: 0.8, build: buildSinglet },
+  'lane-04': { view: [0.32, 0.2, 1], fit: 0.94, blob: 0.8, build: buildShorts },
+  'pace-05': { view: [0.45, 0.6, 1], fit: 0.86, blob: 0, build: buildBelt },
+  'night-06': { view: [0.8, 0.45, 1], fit: 0.92, blob: 1, build: buildCap }
+};
+
+/* ---------- 장면 ---------- */
+const S = { renderer: null, scene: null, camera: null, controls: null, key: null, model: null, id: null, raf: 0, host: null, home: null };
+
+const init = (host) => {
+  S.host = host;
+  if (S.renderer) {
+    if (S.renderer.domElement.parentNode !== host) host.appendChild(S.renderer.domElement);
+    return;
+  }
+  let renderer;
+  try { renderer = new T.WebGLRenderer({ antialias: true, alpha: true }); } catch (_) { throw new Error('webgl'); }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputColorSpace = T.SRGBColorSpace;
+  renderer.toneMapping = T.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.92;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = T.PCFSoftShadowMap;
+  renderer.setClearColor(0x000000, 0);
+  host.appendChild(renderer.domElement);
+
+  const scene = new T.Scene();
+  const pmrem = new T.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new T.RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = 0.55;
+  const camera = new T.PerspectiveCamera(30, 1, 0.05, 80);
+  const key = new T.DirectionalLight('#fff4e6', 2.0);
+  key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  key.shadow.bias = -0.0004;
+  key.shadow.normalBias = 0.02;
+  scene.add(key, key.target, new T.HemisphereLight('#fffaf2', '#cbbfae', 0.55));
+  const ground = new T.Mesh(new T.PlaneGeometry(40, 40), new T.ShadowMaterial({ opacity: 0.08 }));
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  const controls = new T.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.enablePan = false;
+  controls.rotateSpeed = 0.8;
+  controls.zoomSpeed = 0.8;
+  controls.minPolarAngle = 0.2;
+  controls.maxPolarAngle = Math.PI / 2 - 0.05;
+  controls.autoRotateSpeed = 1.4;
+  new ResizeObserver(() => resize()).observe(host);
+  Object.assign(S, { renderer, scene, camera, controls, key });
+};
+
+const resize = () => {
+  if (!S.renderer || !S.host) return;
+  const w = S.host.clientWidth || 1; const h = S.host.clientHeight || 1;
+  S.renderer.setSize(w, h, false);
+  S.camera.aspect = w / h;
+  S.camera.updateProjectionMatrix();
+};
+
+const place = (group, blobOpacity = 1) => {
+  const box = new T.Box3().setFromObject(group);
+  const c = box.getCenter(new T.Vector3()); const size = box.getSize(new T.Vector3());
+  group.position.set(-c.x, -box.min.y + 0.002, -c.z);
+  const pivot = new T.Group();
+  pivot.add(group);
+  if (!blobOpacity) return pivot;
+  const blob = new T.Mesh(new T.PlaneGeometry(1, 1), new T.MeshBasicMaterial({ map: blobTex(), transparent: true, depthWrite: false, opacity: blobOpacity }));
+  blob.rotation.x = -Math.PI / 2;
+  blob.position.y = 0.003;
+  blob.scale.set(size.x * 1.3, size.z * 1.4, 1);
+  pivot.add(blob);
+  return pivot;
+};
+
+const frame = (dir, fit = 0.86) => {
+  const box = new T.Box3().setFromObject(S.model);
+  const size = box.getSize(new T.Vector3()); const center = box.getCenter(new T.Vector3());
+  const r = size.length() / 2;
+  const vfov = T.MathUtils.degToRad(S.camera.fov);
+  const hfov = 2 * Math.atan(Math.tan(vfov / 2) * S.camera.aspect);
+  const dist = (r / Math.sin(Math.min(vfov, hfov) / 2)) * fit;
+  const d = new T.Vector3(...dir).normalize();
+  S.home = { pos: center.clone().addScaledVector(d, dist), target: center.clone() };
+  S.camera.position.copy(S.home.pos);
+  S.camera.near = dist / 60; S.camera.far = dist * 12; S.camera.updateProjectionMatrix();
+  S.controls.target.copy(center);
+  S.controls.minDistance = dist * 0.42;
+  S.controls.maxDistance = dist * 1.7;
+  S.controls.update();
+  const s = r * 1.6; const cam = S.key.shadow.camera;
+  Object.assign(cam, { left: -s, right: s, top: s, bottom: -s, near: 0.1, far: r * 14 });
+  cam.updateProjectionMatrix();
+  S.key.position.set(center.x + r * 2.2, r * 4.2, center.z + r * 2.8);
+  S.key.target.position.copy(center);
+};
+
+const dispose = (obj) => obj.traverse((o) => {
+  if (o.geometry) o.geometry.dispose();
+  const mats = Array.isArray(o.material) ? o.material : o.material ? [o.material] : [];
+  mats.forEach((m) => { Object.values(m).forEach((v) => { if (v && v.isTexture) v.dispose(); }); m.dispose(); });
+});
+
+const loop = () => {
+  S.raf = requestAnimationFrame(loop);
+  S.controls.update();
+  S.renderer.render(S.scene, S.camera);
+};
+
+window.RW3D = {
+  async show(host, id, { spin = true } = {}) {
+    await loadThree();
+    init(host);
+    resize();
+    if (S.id !== id) {
+      if (S.model) { S.scene.remove(S.model); dispose(S.model); }
+      const spec = MODELS[id];
+      S.model = place(spec.build(), spec.blob);
+      S.scene.add(S.model);
+      S.id = id;
+      frame(spec.view, spec.fit);
+    }
+    this.setSpin(spin);
+    if (!S.raf) loop();
+  },
+  stop() { if (S.raf) cancelAnimationFrame(S.raf); S.raf = 0; },
+  setSpin(on) { if (S.controls) S.controls.autoRotate = on; },
+  rotate(a) { if (S.model) S.model.rotation.y += a; },
+  zoom(f) {
+    if (!S.controls) return;
+    const c = S.controls; const off = S.camera.position.clone().sub(c.target);
+    const len = Math.min(c.maxDistance, Math.max(c.minDistance, off.length() * f));
+    S.camera.position.copy(c.target).addScaledVector(off.normalize(), len);
+  },
+  reset() {
+    if (!S.home) return;
+    S.camera.position.copy(S.home.pos);
+    S.controls.target.copy(S.home.target);
+    if (S.model) S.model.rotation.y = 0;
+    S.controls.update();
+  }
+};
+</script>
+</body>
+</html>

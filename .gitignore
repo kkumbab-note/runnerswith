@@ -1,0 +1,8 @@
+# 사이트에서 쓰지 않는 원본·작업 파일 (로컬에만 보관)
+/assets/images/raw/
+/video/
+/.claude/
+
+# OS
+Thumbs.db
+.DS_Store
