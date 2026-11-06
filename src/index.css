@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+/* 다크 모드는 쓰지 않아요. dark: 변형은 .dark 클래스가 있을 때만 켜져요 */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Geist Variable", "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  /* 숫자·라벨용 고정폭. 한글은 Pretendard로 넘어가요 */
+  --font-mono: "Geist Mono Variable", "Pretendard Variable", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "Fraunces", "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* 브랜드 포인트(트랙 레드): 로고 점·진행 표시 같은 아주 작은 신호에만 써요 */
+  --color-brand: var(--brand);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --animate-marquee: marquee 48s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --brand: oklch(0.64 0.19 36);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans;
+    scroll-padding-top: 4.5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* 스크롤 등장: 8px만 떠오르는 절제된 모션 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 0.7, 0.12, 1),
+      transform 0.6s cubic-bezier(0.22, 0.7, 0.12, 1);
+  }
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 모션 일시정지 버튼 · 동작 줄이기 설정 */
+.motion-paused [data-motion] {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  :root:not(.motion-play) [data-motion] {
+    animation-play-state: paused !important;
+  }
+}
