@@ -5,6 +5,12 @@
 export const CONFIG = {
   brand: "러너스위드",
   email: "hello@example.com",
+  /** 대표 주소. 구조화 데이터·sitemap.xml에 쓰여요 (index.html의 canonical·og:url과 같게 맞춰주세요) */
+  siteUrl: "https://kkumbab-note.github.io/runnerswith/",
+  analytics: {
+    /** GA4 측정 ID(G-XXXXXXX). 넣으면 페이지 로드 후 gtag.js가 붙고 주요 행동이 기록돼요. 비워두면 아무것도 보내지 않아요 */
+    ga4Id: "",
+  },
   links: {
     store: "https://smartstore.naver.com/your-store",
     kakao: "https://pf.kakao.com/_yourChannel",
@@ -42,7 +48,40 @@ export const CONFIG = {
 
 export type LinkKey = keyof typeof CONFIG.links
 
-export const productLink = (id: string) => CONFIG.productLinks[id] || CONFIG.links.store
+/** 구매 링크를 누른 위치. 스마트스토어 통계·GA4에서 어느 버튼으로 들어왔는지 구분해요 */
+export type Placement = "card" | "detail" | "summary" | "how-to-buy"
+
+/**
+ * 스마트스토어 링크에 유입 경로를 붙여요.
+ * nt_* 는 스마트스토어 센터 > 통계 > 마케팅 분석(사용자 정의 채널)이, utm_* 는 GA4가 읽어요.
+ */
+export function withTracking(url: string, placement: Placement) {
+  try {
+    const u = new URL(url)
+    if (!u.hostname.endsWith("smartstore.naver.com")) return url
+    const params: Record<string, string> = {
+      nt_source: "runnerswith_web",
+      nt_medium: "homepage",
+      nt_detail: placement,
+      utm_source: "runnerswith_web",
+      utm_medium: "homepage",
+      utm_campaign: "site",
+      utm_content: placement,
+    }
+    for (const [key, value] of Object.entries(params)) u.searchParams.set(key, value)
+    return u.toString()
+  } catch {
+    return url
+  }
+}
+
+/** 제품 판매 페이지. 누른 위치를 주면 유입 경로가 붙어요 */
+export const productLink = (id: string, placement?: Placement) => {
+  const url = CONFIG.productLinks[id] || CONFIG.links.store
+  return placement ? withTracking(url, placement) : url
+}
+
+export const storeLink = (placement: Placement) => withTracking(CONFIG.links.store, placement)
 
 /** public/ 아래 파일 경로를 배포 주소(base)에 맞춰 만들어요 */
 export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`

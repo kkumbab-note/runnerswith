@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react"
+import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent, type RefObject } from "react"
 import { ArrowUpRight, Check, ChevronLeft, ChevronRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useSite } from "@/components/site/site-context"
 import { Viewer3D } from "@/components/site/viewer-3d"
-import { asset, CONFIG, productLink } from "@/lib/config"
+import { track } from "@/lib/analytics"
+import { CONFIG, productLink } from "@/lib/config"
+import { responsiveImage, thumbnailImage } from "@/lib/images"
 import { findProduct, formatPrice, type Product, type ProductId } from "@/lib/products"
 import { cn } from "@/lib/utils"
 
@@ -35,6 +36,7 @@ function Gallery({ product }: { product: Product }) {
     <div>
       <div
         tabIndex={0}
+        role="group"
         aria-roledescription="사진 갤러리"
         aria-label={`${product.name} 사진 ${index + 1}/${count}. 화살표 키로 넘겨요.`}
         onKeyDown={onKeyDown}
@@ -42,7 +44,12 @@ function Gallery({ product }: { product: Product }) {
         onPointerUp={onPointerUp}
         className="relative aspect-[4/5] max-h-[min(70vh,640px)] w-full touch-pan-y overflow-hidden bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
       >
-        <img key={image.src} src={asset(image.src)} alt={image.alt} className="size-full animate-in object-cover fade-in-50" />
+        <img
+          key={image.src}
+          {...responsiveImage(image.src, "(min-width: 1024px) 560px, calc(100vw - 32px)")}
+          alt={image.alt}
+          className="size-full animate-in object-cover fade-in-50"
+        />
         <Button variant="outline" size="icon-sm" aria-label="이전 사진" onClick={() => go(index - 1)} className="absolute top-1/2 left-3 -translate-y-1/2 bg-background">
           <ChevronLeft />
         </Button>
@@ -66,7 +73,7 @@ function Gallery({ product }: { product: Product }) {
               i === index && "border-foreground opacity-100",
             )}
           >
-            <img src={asset(img.src)} alt="" loading="lazy" className="size-full object-cover" />
+            <img src={thumbnailImage(img.src)} alt="" width={56} height={56} loading="lazy" className="size-full object-cover" />
           </button>
         ))}
       </div>
@@ -126,21 +133,23 @@ function ProductDetail({ product, onClose }: { product: Product; onClose: () => 
           ))}
         </ul>
 
-        <dl className="text-sm">
-          {product.specs.map(([label, value], i) => (
-            <div key={label}>
-              {i > 0 ? <Separator /> : null}
-              <div className="grid grid-cols-[6rem_1fr] gap-4 py-2">
-                <dt className="text-muted-foreground">{label}</dt>
-                <dd>{value}</dd>
-              </div>
+        <dl className="divide-y text-sm">
+          {product.specs.map(([label, value]) => (
+            <div key={label} className="grid grid-cols-[6rem_1fr] gap-4 py-2">
+              <dt className="text-muted-foreground">{label}</dt>
+              <dd>{value}</dd>
             </div>
           ))}
         </dl>
 
         <div className="mt-auto grid gap-2 sm:grid-cols-[1fr_auto]">
           <Button asChild size="lg" className="h-10">
-            <a href={productLink(product.id)} target="_blank" rel="noopener noreferrer">
+            <a
+              href={productLink(product.id, "detail")}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("click_store", { item_id: product.id, placement: "detail" })}
+            >
               스마트스토어에서 구매 <ArrowUpRight data-icon="inline-end" />
               <span className="sr-only">(새 창)</span>
             </a>
@@ -169,7 +178,14 @@ function ProductDetail({ product, onClose }: { product: Product; onClose: () => 
   )
 }
 
-export function ProductDialog({ productId, onClose }: { productId: ProductId | null; onClose: () => void }) {
+interface ProductDialogProps {
+  productId: ProductId | null
+  onClose: () => void
+  /** 닫을 때 포커스를 돌려줄 요소 (모달을 연 버튼, 또는 단체 문의 시 폼 입력칸) */
+  returnFocusRef: RefObject<HTMLElement | null>
+}
+
+export function ProductDialog({ productId, onClose, returnFocusRef }: ProductDialogProps) {
   const product = productId ? findProduct(productId) : undefined
 
   // #product-… 주소로 공유할 수 있게 열린 제품을 주소에 남겨요
@@ -184,7 +200,16 @@ export function ProductDialog({ productId, onClose }: { productId: ProductId | n
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[calc(100dvh-2rem)] gap-0 overflow-y-auto p-0 sm:max-w-5xl">
+      <DialogContent
+        className="max-h-[calc(100dvh-2rem)] gap-0 overflow-y-auto p-0 sm:max-w-5xl"
+        onCloseAutoFocus={(e) => {
+          // 트리거 없이 코드로 연 모달이라, 닫을 때 돌아갈 곳을 직접 정해요
+          const target = returnFocusRef.current
+          if (!target) return
+          e.preventDefault()
+          target.focus({ preventScroll: true })
+        }}
+      >
         {product ? <ProductDetail key={product.id} product={product} onClose={onClose} /> : null}
       </DialogContent>
     </Dialog>

@@ -10,16 +10,9 @@ export const INQUIRY_LABEL: Record<InquiryType, string> = {
   etc: "기타 문의",
 }
 
-export interface OrderPrefill {
-  type?: InquiryType
-  productId?: ProductId
-  /** 같은 값으로 다시 채워도 반영되도록 매번 바뀌는 키 */
-  key: number
-}
-
 export interface SiteActions {
   openProduct: (id: ProductId) => void
-  prefillOrder: (prefill: Omit<OrderPrefill, "key">) => void
+  prefillOrder: (prefill: { type?: InquiryType; productId?: ProductId }) => void
 }
 
 export const SiteContext = createContext<SiteActions | null>(null)

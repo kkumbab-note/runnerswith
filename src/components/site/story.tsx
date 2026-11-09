@@ -1,7 +1,7 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Reveal } from "@/components/site/reveal"
 import { SectionHeading } from "@/components/site/section-heading"
-import { asset } from "@/lib/config"
+import { responsiveImage } from "@/lib/images"
 
 const VALUES = [
   {
@@ -48,10 +48,8 @@ export function Story() {
         <Reveal className="mt-12">
           <figure>
             <img
-              src={asset("images/story.webp")}
+              {...responsiveImage("images/story.webp", "(min-width: 1152px) 1104px, calc(100vw - 32px)")}
               alt="해 뜨는 한강 산책로를 나란히 달리는 러닝 크루 여섯 명의 뒷모습, 멀리 도시 스카이라인과 다리가 보이는 와이드 컷"
-              width={1536}
-              height={1024}
               loading="lazy"
               decoding="async"
               className="aspect-[4/3] w-full rounded-lg border object-cover sm:aspect-[21/9]"

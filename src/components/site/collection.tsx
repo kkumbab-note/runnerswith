@@ -5,8 +5,13 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/comp
 import { Reveal } from "@/components/site/reveal"
 import { SectionHeading } from "@/components/site/section-heading"
 import { useSite } from "@/components/site/site-context"
-import { asset, productLink } from "@/lib/config"
+import { track } from "@/lib/analytics"
+import { productLink } from "@/lib/config"
+import { responsiveImage } from "@/lib/images"
 import { formatPrice, PRODUCTS, type Product } from "@/lib/products"
+
+/** 카드 이미지가 보이는 폭: 3열(1104px 안) · 2열 · 1열 */
+const CARD_SIZES = "(min-width: 1024px) 352px, (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)"
 
 function ProductCard({ product }: { product: Product }) {
   const { openProduct, prefillOrder } = useSite()
@@ -17,10 +22,8 @@ function ProductCard({ product }: { product: Product }) {
     <Card className="h-full gap-0 py-0">
       <div className="relative aspect-[4/5] overflow-hidden bg-muted">
         <img
-          src={asset(main.src)}
+          {...responsiveImage(main.src, CARD_SIZES)}
           alt={main.alt}
-          width={960}
-          height={1440}
           loading="lazy"
           decoding="async"
           className="size-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
@@ -64,7 +67,12 @@ function ProductCard({ product }: { product: Product }) {
 
       <CardFooter className="mt-4 flex-wrap gap-2">
         <Button asChild size="sm">
-          <a href={productLink(product.id)} target="_blank" rel="noopener noreferrer">
+          <a
+            href={productLink(product.id, "card")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("click_store", { item_id: product.id, placement: "card" })}
+          >
             구매하기 <ArrowUpRight data-icon="inline-end" />
             <span className="sr-only">: {product.name} (스마트스토어, 새 창)</span>
           </a>

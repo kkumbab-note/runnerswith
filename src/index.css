@@ -4,14 +4,31 @@
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
 
+/* 사이트 문구에 쓰인 글자만 남긴 글꼴이에요 (scripts/fonts.mjs로 만들어요) */
+@font-face {
+  font-family: "Pretendard Subset";
+  src: url("./assets/fonts/pretendard-subset.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("./assets/fonts/fraunces-italic-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* 다크 모드는 쓰지 않아요. dark: 변형은 .dark 클래스가 있을 때만 켜져요 */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Geist Variable", "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+  /* 서브셋에 없는 글자는 페이지 로드 후 받는 Pretendard 원본(index.html)으로 이어져요 */
+  --font-sans: "Geist Variable", "Pretendard Subset", "Pretendard Variable", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-heading: var(--font-sans);
   /* 숫자·라벨용 고정폭. 한글은 Pretendard로 넘어가요 */
-  --font-mono: "Geist Mono Variable", "Pretendard Variable", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "Geist Mono Variable", "Pretendard Subset", "Pretendard Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-serif: "Fraunces", "Times New Roman", serif;
 
   --color-background: var(--background);
@@ -92,14 +109,15 @@
 
 @layer components {
   /* 스크롤 등장: 8px만 떠오르는 절제된 모션 */
-  .reveal {
+  /* 스크립트가 있을 때만(html.js) 숨겨요. 스크립트가 꺼져 있으면 미리 만든 HTML이 그대로 보여요 */
+  .js .reveal {
     opacity: 0;
     transform: translateY(8px);
     transition:
       opacity 0.6s cubic-bezier(0.22, 0.7, 0.12, 1),
       transform 0.6s cubic-bezier(0.22, 0.7, 0.12, 1);
   }
-  .reveal[data-visible="true"] {
+  .js .reveal[data-visible="true"] {
     opacity: 1;
     transform: none;
   }
@@ -113,7 +131,7 @@
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

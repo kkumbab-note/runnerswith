@@ -13,12 +13,13 @@ export function LogoMark({ className }: { className?: string }) {
   )
 }
 
+/** 화면에 보이는 글자("Runners with")가 그대로 접근 가능한 이름이 되도록 텍스트로 그려요 */
 export function Logo({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-2", className)}>
       <LogoMark />
-      <span className="text-[15px] leading-none font-semibold tracking-tight uppercase">
-        Runners<span className="ml-0.5 font-serif text-[1.15em] font-normal tracking-normal normal-case italic">with</span>
+      <span lang="en" className="text-[15px] leading-none font-semibold tracking-tight uppercase">
+        Runners <span className="font-serif text-[1.15em] font-normal tracking-normal normal-case italic">with</span>
       </span>
     </span>
   )

@@ -27,20 +27,32 @@
     <meta name="twitter:description" content="러닝화·의류·장비. 매일 곁에서 함께 달리는 기어." />
     <meta name="twitter:image" content="https://kkumbab-note.github.io/runnerswith/images/og-image.jpg" />
 
+    <script>
+      // 첫 화면을 그리기 전에 맞춰요: 스크립트 사용 표시(등장 효과용), 저장된 모션 설정
+      ;(function () {
+        var root = document.documentElement
+        root.classList.add("js")
+        // 앱 스크립트를 끝내 못 받으면 등장 효과로 숨겨 둔 내용을 그냥 보여줘요
+        setTimeout(function () {
+          if (!window.__rwReady) root.classList.remove("js")
+        }, 6000)
+        // 주문 폼은 스크립트로만 처리해요. 폼 코드가 도착하기 전에 눌러도 페이지가 새로고침되지 않게 막아요
+        document.addEventListener("submit", function (e) {
+          if (e.target.hasAttribute && e.target.hasAttribute("data-js-form")) e.preventDefault()
+        })
+        try {
+          var motion = localStorage.getItem("rw-motion")
+          if (motion === "paused") root.classList.add("motion-paused")
+          else if (motion === "play") root.classList.add("motion-play")
+        } catch (e) {}
+      })()
+    </script>
+
     <link rel="icon" href="%BASE_URL%logo/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="%BASE_URL%logo/apple-touch-icon.png" />
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300..500&display=swap"
-    />
+    <!-- 첫 화면에서 가장 큰 요소(히어로 영상 포스터)를 먼저 받아요. src/components/site/hero.tsx의 HERO_POSTER와 같아야 해요 -->
+    <link rel="preload" as="image" href="%BASE_URL%images/hero-a-640.webp" fetchpriority="high" />
 
     <script type="application/ld+json">
       {

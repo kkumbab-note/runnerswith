@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react"
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react"
 import { ArrowRight, ArrowUpRight, Copy } from "lucide-react"
-import { toast } from "sonner"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -14,8 +13,11 @@ import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
 import { Reveal } from "@/components/site/reveal"
 import { SectionHeading } from "@/components/site/section-heading"
-import { INQUIRY_LABEL, type InquiryType, type OrderPrefill } from "@/components/site/site-context"
-import { CONFIG, productLink } from "@/lib/config"
+import { INQUIRY_LABEL, type InquiryType } from "@/components/site/site-context"
+import { track } from "@/lib/analytics"
+import { CONFIG, productLink, storeLink } from "@/lib/config"
+import { notify } from "@/lib/notify"
+import { useOrderPrefill } from "@/lib/order-prefill"
 import { findProduct, PRODUCTS } from "@/lib/products"
 import { cn } from "@/lib/utils"
 
@@ -112,10 +114,16 @@ function FieldMessage({ id, error, hint }: { id: string; error?: string; hint?: 
   ) : null
 }
 
-export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
+export function OrderForm() {
+  const prefill = useOrderPrefill()
   const [form, setForm] = useState<FormState>(INITIAL)
   const [errors, setErrors] = useState<Errors>({})
   const [summaryOpen, setSummaryOpen] = useState(false)
+  // 오늘 날짜는 방문 시점 기준이라, 미리 만든 HTML이 아니라 브라우저에서 정해요
+  const [minDate, setMinDate] = useState<string>()
+  const submitRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => setMinDate(todayISO()), [])
 
   useEffect(() => {
     if (!prefill) return
@@ -136,9 +144,10 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
     const firstInvalid = (["name", "contact", "qty", "date", "agree"] as const).find((k) => next[k])
     if (firstInvalid) {
       document.getElementById(`f-${firstInvalid}`)?.focus()
-      toast(`입력 내용을 확인해 주세요 (${Object.values(next).filter(Boolean).length}곳).`)
+      notify(`입력 내용을 확인해 주세요 (${Object.values(next).filter(Boolean).length}곳).`)
       return
     }
+    track("generate_lead", { inquiry_type: form.type, item_id: findProduct(form.product)?.id })
     setSummaryOpen(true)
   }
 
@@ -177,7 +186,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
           key: "store" as const,
           title: "네이버 스마트스토어",
           desc: "개인 구매는 바로 결제할 수 있어요",
-          href: form.type === "personal" && product ? productLink(product.id) : CONFIG.links.store,
+          href: form.type === "personal" && product ? productLink(product.id, "summary") : storeLink("summary"),
           external: true,
         },
       ],
@@ -186,12 +195,13 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
   }, [form])
 
   const onChannel = (key: Channel) => {
+    track(key === "store" ? "click_store" : "contact", { method: key, inquiry_type: form.type, placement: "summary" })
     if (key === "kakao") {
       copyText(summary.text).then((ok) =>
-        toast(ok ? "요약을 복사했어요. 카카오톡 채팅창에 붙여넣어 주세요." : "복사가 안 됐어요. ‘요약 복사’를 다시 눌러주세요."),
+        notify(ok ? "요약을 복사했어요. 카카오톡 채팅창에 붙여넣어 주세요." : "복사가 안 됐어요. ‘요약 복사’를 다시 눌러주세요."),
       )
     } else if (key === "email") {
-      toast("메일 앱을 열고 있어요. 내용 확인 후 보내기를 눌러주세요.")
+      notify("메일 앱을 열고 있어요. 내용 확인 후 보내기를 눌러주세요.")
     }
   }
 
@@ -256,7 +266,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
 
           <Reveal delay={1} className="lg:col-span-8">
             <Card>
-              <form noValidate onSubmit={onSubmit} aria-describedby="form-note" className="contents">
+              <form noValidate data-js-form onSubmit={onSubmit} aria-describedby="form-note" className="contents">
                 <CardContent className="grid gap-6 sm:grid-cols-2">
                   <div className="grid gap-2">
                     <Label htmlFor="f-name">이름</Label>
@@ -293,17 +303,18 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
                     <legend className="mb-3 text-sm font-medium">문의 유형</legend>
                     <RadioGroup value={form.type} onValueChange={(v) => set("type", v as InquiryType)} className="flex flex-wrap gap-2">
                       {(Object.keys(INQUIRY_LABEL) as InquiryType[]).map((key) => (
-                        <Label
+                        <div
                           key={key}
-                          htmlFor={`f-type-${key}`}
                           className={cn(
-                            "h-9 cursor-pointer rounded-md border px-3 font-normal transition-colors hover:bg-muted",
+                            "flex h-9 items-center gap-2 rounded-md border pl-3 transition-colors hover:bg-muted",
                             form.type === key && "border-foreground",
                           )}
                         >
                           <RadioGroupItem id={`f-type-${key}`} value={key} />
-                          {key === "etc" ? "기타" : INQUIRY_LABEL[key]}
-                        </Label>
+                          <Label htmlFor={`f-type-${key}`} className="h-full cursor-pointer pr-3 font-normal">
+                            {key === "etc" ? "기타" : INQUIRY_LABEL[key]}
+                          </Label>
+                        </div>
                       ))}
                     </RadioGroup>
                   </fieldset>
@@ -312,7 +323,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
                     <Label htmlFor="f-product">제품</Label>
                     <Select value={form.product} onValueChange={(v) => set("product", v)}>
                       <SelectTrigger id="f-product" className="w-full">
-                        <SelectValue />
+                        <SelectValue placeholder="선택 안 함 · 상담 후 결정" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="none">선택 안 함 · 상담 후 결정</SelectItem>
@@ -354,7 +365,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
                     <Input
                       id="f-date"
                       type="date"
-                      min={todayISO()}
+                      min={minDate}
                       value={form.date}
                       onChange={(e) => set("date", e.target.value)}
                       aria-invalid={Boolean(errors.date)}
@@ -393,7 +404,8 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
                       <div className="grid gap-1">
                         <Label htmlFor="f-agree">개인정보 수집·이용에 동의해요 (필수)</Label>
                         <p id="f-agree-detail" className="text-xs text-muted-foreground">
-                          수집 항목: 이름, 연락처 · 목적: 주문·문의 응대 · 보유 기간: 문의 처리 후 1년
+                          수집 항목: 이름, 연락처 · 목적: 주문·문의 응대 · 보유 기간: 문의 처리 후 1년. 동의하지 않을 수 있으며, 동의하지
+                          않으면 이 폼으로는 문의를 접수할 수 없어요(카카오톡·이메일로는 문의할 수 있어요).
                         </p>
                       </div>
                     </div>
@@ -401,7 +413,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
                   </div>
                 </CardContent>
                 <CardFooter className="flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-                  <Button type="submit" size="lg" className="h-10 px-4">
+                  <Button ref={submitRef} type="submit" size="lg" className="h-10 px-4">
                     문의 내용 정리하기 <ArrowRight data-icon="inline-end" />
                   </Button>
                   <p id="form-note" className="text-xs text-muted-foreground">
@@ -415,19 +427,23 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
       </div>
 
       <Dialog open={summaryOpen} onOpenChange={setSummaryOpen}>
-        <DialogContent className="max-h-[calc(100dvh-2rem)] overflow-y-auto sm:max-w-lg">
+        <DialogContent
+          className="max-h-[calc(100dvh-2rem)] overflow-y-auto sm:max-w-lg"
+          onCloseAutoFocus={(e) => {
+            // 제출 버튼으로 연 모달이라, 닫으면 다시 제출 버튼으로 돌아가요
+            e.preventDefault()
+            submitRef.current?.focus({ preventScroll: true })
+          }}
+        >
           <DialogHeader>
             <DialogTitle className="text-xl font-semibold tracking-tight">이렇게 정리했어요</DialogTitle>
             <DialogDescription>아직 전송 전이에요. 보낼 채널을 골라주세요.</DialogDescription>
           </DialogHeader>
-          <dl className="text-sm">
-            {summary.rows.map(([label, value], i) => (
-              <div key={label}>
-                {i > 0 ? <Separator /> : null}
-                <div className="grid grid-cols-[5.5rem_1fr] gap-4 py-2">
-                  <dt className="text-muted-foreground">{label}</dt>
-                  <dd className="whitespace-pre-wrap">{value}</dd>
-                </div>
+          <dl className="divide-y text-sm">
+            {summary.rows.map(([label, value]) => (
+              <div key={label} className="grid grid-cols-[5.5rem_1fr] gap-4 py-2">
+                <dt className="text-muted-foreground">{label}</dt>
+                <dd className="whitespace-pre-wrap">{value}</dd>
               </div>
             ))}
           </dl>
@@ -465,7 +481,7 @@ export function OrderForm({ prefill }: { prefill: OrderPrefill | null }) {
             <Button
               variant="outline"
               size="sm"
-              onClick={async () => toast((await copyText(summary.text)) ? "요약을 클립보드에 복사했어요." : "복사가 안 됐어요. 직접 선택해서 복사해 주세요.")}
+              onClick={async () => notify((await copyText(summary.text)) ? "요약을 클립보드에 복사했어요." : "복사가 안 됐어요. 직접 선택해서 복사해 주세요.")}
             >
               <Copy data-icon="inline-start" />
               요약 복사

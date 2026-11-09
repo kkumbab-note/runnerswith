@@ -5,7 +5,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Reveal } from "@/components/site/reveal"
 import { SectionHeading } from "@/components/site/section-heading"
 import { useSite } from "@/components/site/site-context"
-import { CONFIG } from "@/lib/config"
+import { track } from "@/lib/analytics"
+import { CONFIG, storeLink } from "@/lib/config"
 
 export function HowToBuy() {
   const { prefillOrder } = useSite()
@@ -19,7 +20,12 @@ export function HowToBuy() {
       points: ["1개부터 바로 구매", "3만원 이상 무료배송", "러닝화 사이즈 교환 1회 무료"],
       primary: (
         <Button asChild size="sm">
-          <a href={CONFIG.links.store} target="_blank" rel="noopener noreferrer">
+          <a
+            href={storeLink("how-to-buy")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("click_store", { placement: "how-to-buy" })}
+          >
             스마트스토어 <ArrowUpRight data-icon="inline-end" />
             <span className="sr-only">(새 창)</span>
           </a>

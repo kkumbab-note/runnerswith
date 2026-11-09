@@ -24,7 +24,10 @@ export function SiteFooter() {
     <footer className="border-t">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Logo />
+          <a href="#top" className="rounded-md">
+            <Logo />
+            <span className="sr-only"> 러너스위드 홈</span>
+          </a>
           <p className="mt-4 text-sm text-muted-foreground">
             당신과 함께 달리는 일상을 위한 기어.
             <br />
@@ -90,7 +93,8 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Separator />
         <div className="flex flex-wrap items-center justify-between gap-4 py-6 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} 러너스위드 Runners With. All rights reserved.</p>
+          {/* 빌드한 해와 방문한 해가 달라도 하이드레이션 경고 없이 방문 시점 연도로 맞춰요 */}
+          <p suppressHydrationWarning>© {new Date().getFullYear()} 러너스위드 Runners With. All rights reserved.</p>
           <ul className="flex flex-wrap items-center gap-4">
             <li>
               <a href={CONFIG.links.terms || "#top"} className="hover:text-foreground">

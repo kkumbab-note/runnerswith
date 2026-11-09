@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { ArrowDownRight, ArrowUpRight, Menu } from "lucide-react"
-import { toast } from "sonner"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Logo } from "@/components/site/logo"
 import { CONFIG } from "@/lib/config"
+import { notify } from "@/lib/notify"
 import { cn } from "@/lib/utils"
 
 const NAV = [
@@ -106,7 +106,7 @@ function LanguageToggle({ className }: { className?: string }) {
   const onChange = (value: string) => {
     if (value !== "en") return
     if (CONFIG.links.en) window.location.href = CONFIG.links.en
-    else toast("English version is coming soon — 영문 페이지는 준비 중이에요.")
+    else notify("English version is coming soon — 영문 페이지는 준비 중이에요.")
   }
   return (
     <ToggleGroup type="single" value="ko" onValueChange={onChange} variant="outline" size="sm" aria-label="언어 선택" className={className}>
@@ -127,8 +127,9 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:px-6">
-        <a href="#top" aria-label="러너스위드 홈" className="mr-4 rounded-md">
+        <a href="#top" className="mr-4 rounded-md">
           <Logo />
+          <span className="sr-only"> 러너스위드 홈</span>
         </a>
 
         <nav aria-label="주요 메뉴" className="hidden items-center gap-1 md:flex">
